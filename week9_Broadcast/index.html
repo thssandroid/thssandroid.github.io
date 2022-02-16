@@ -511,9 +511,14 @@
 <h2 id="_2">作业说明</h2>
 <p>MainActivity类：包含wifiReceiver类，你需要对其中的函数进行完善，并注册广播接收器。使广播接收器可以接收到系统发出的WiFi状态改变的系统广播，并修改textView中的相应文字。</p>
 <p>本次作业要完成以下目标：
+在Wifi开启状态改变时改变对应的TextView中的内容。
 - 打开WiFi：TextView内容显示 "Wifi On"
 - 关闭WiFi：TextView内容显示 "Wifi Off"
 - 打开WiFi：TextView内容显示 "Wifi On"</p>
+<p>参考WifiReceiver类的实现，在蓝牙开启状态改变时改变其对应的TextView中的内容。
+- 打开蓝牙：TextView内容显示 "Bluetooth On"
+- 关闭WiFi：TextView内容显示 "Bluetooth Off"
+- 打开WiFi：TextView内容显示 "Bluetooth On"</p>
 <p><center>
 <img src="..\img\project7img1.png" width = "40%">
 <img src="..\img\project7img2.png" width = "40%">
@@ -529,6 +534,9 @@
 </li>
 <li>
 <p>注册广播接收器：要求使用动态方式进行注册</p>
+</li>
+<li>
+<p>参考WifiReceiver类的实现，针对蓝牙的状态对TextView进行修改。</p>
 </li>
 </ol>
 <p>Tips：你可能需要利用<strong>WifiManager</strong></p>
