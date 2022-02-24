@@ -1,0 +1,1526 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.8">
+    
+    
+      
+        <title>大作业后端框架说明 - 移动软件开发作业指南</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.6e60f8b8.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.e6a45f82.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#java" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="移动软件开发作业指南" class="md-header__button md-logo" aria-label="移动软件开发作业指南" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            移动软件开发作业指南
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              大作业后端框架说明
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="移动软件开发作业指南" class="md-nav__button md-logo" aria-label="移动软件开发作业指南" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    移动软件开发作业指南
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        首页
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week1_java%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" class="md-nav__link">
+        任务1：Java环境搭建
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week2_%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" class="md-nav__link">
+        任务2：安卓开发环境搭建
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week3_Activity%E5%8F%8A%E5%85%B6%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/" class="md-nav__link">
+        任务3：Activity及其生命周期
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week4_%E9%9A%90%E5%BC%8FIntent/" class="md-nav__link">
+        任务4：隐式Intent
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week5_TabLayout/" class="md-nav__link">
+        任务5：TabLayout
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week6_RecyclerView/" class="md-nav__link">
+        任务6：RecyclerView
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week7_%E5%A4%9A%E7%BA%BF%E7%A8%8B/" class="md-nav__link">
+        任务7：多线程
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week9_Broadcast/" class="md-nav__link">
+        任务8：Broadcast
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week10_%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8/" class="md-nav__link">
+        任务9：数据存储
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week11_%E7%BD%91%E7%BB%9C%E6%93%8D%E4%BD%9C/" class="md-nav__link">
+        任务10：网络操作
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week8_Service/" class="md-nav__link">
+        任务11：Service
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%A4%A7%E4%BD%9C%E4%B8%9A/" class="md-nav__link">
+        大作业
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          大作业后端框架说明
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        大作业后端框架说明
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    一、后端依赖
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    二、后端框架解析
+  </a>
+  
+    <nav class="md-nav" aria-label="二、后端框架解析">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    2.1 目录介绍
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    2.2 框架结构分析
+  </a>
+  
+    <nav class="md-nav" aria-label="2.2 框架结构分析">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#221-base" class="md-nav__link">
+    2.2.1 Base基础模块
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#222-frame" class="md-nav__link">
+    2.2.2 Frame框架模块
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#223-biz" class="md-nav__link">
+    2.2.3 Biz业务模块
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23" class="md-nav__link">
+    2.3 业务执行流程详解
+  </a>
+  
+    <nav class="md-nav" aria-label="2.3 业务执行流程详解">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#231" class="md-nav__link">
+    2.3.1 入口
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#232" class="md-nav__link">
+    2.3.2 派发业务
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#233" class="md-nav__link">
+    2.3.3 执行业务
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#234" class="md-nav__link">
+    2.3.4 封装返回结果
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#235" class="md-nav__link">
+    2.3.5 其它类型业务流程
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24" class="md-nav__link">
+    2.4 业务扩展指南
+  </a>
+  
+    <nav class="md-nav" aria-label="2.4 业务扩展指南">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#241" class="md-nav__link">
+    2.4.1 新增业务枚举
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#242" class="md-nav__link">
+    2.4.2 新增入参
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#243" class="md-nav__link">
+    2.4.3 新增业务执行函数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#244" class="md-nav__link">
+    2.4.4 书写其它部分代码
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25" class="md-nav__link">
+    2.5 框架特性介绍
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    三、后端编程规范
+  </a>
+  
+    <nav class="md-nav" aria-label="三、后端编程规范">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    3.1 业务逻辑规范
+  </a>
+  
+    <nav class="md-nav" aria-label="3.1 业务逻辑规范">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#311" class="md-nav__link">
+    3.1.1 不可违背的业务逻辑规范
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#322" class="md-nav__link">
+    3.2.2 推荐性的业务逻辑规范
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    3.2 代码书写规范
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    四、后端运行教程
+  </a>
+  
+    <nav class="md-nav" aria-label="四、后端运行教程">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-docker" class="md-nav__link">
+    4.1 安装Docker
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42" class="md-nav__link">
+    4.2 导入镜像
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-docker" class="md-nav__link">
+    4.3 创建Docker容器
+  </a>
+  
+    <nav class="md-nav" aria-label="4.3 创建Docker容器">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#431-macwindows" class="md-nav__link">
+    4.3.1 Mac和Windows系统
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#432-linux" class="md-nav__link">
+    4.3.2 Linux系统
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#433" class="md-nav__link">
+    4.3.3 关闭和启动容器
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44-redismongodb" class="md-nav__link">
+    4.4 启动Redis和Mongodb
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#45-java" class="md-nav__link">
+    4.5 启动Java服务器
+  </a>
+  
+    <nav class="md-nav" aria-label="4.5 启动Java服务器">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#451-macwindows" class="md-nav__link">
+    4.5.1 Mac和Windows系统
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#452-linux" class="md-nav__link">
+    4.5.2 Linux系统
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#46" class="md-nav__link">
+    4.6 运行测试业务
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    五、课程共用服务器访问指南
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%AF%BE%E7%A8%8B%E5%9B%9E%E9%A1%BE%E5%8F%8A%E6%84%9F%E6%83%B3/" class="md-nav__link">
+        关于课程的回顾和一些感想
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    一、后端依赖
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    二、后端框架解析
+  </a>
+  
+    <nav class="md-nav" aria-label="二、后端框架解析">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    2.1 目录介绍
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    2.2 框架结构分析
+  </a>
+  
+    <nav class="md-nav" aria-label="2.2 框架结构分析">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#221-base" class="md-nav__link">
+    2.2.1 Base基础模块
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#222-frame" class="md-nav__link">
+    2.2.2 Frame框架模块
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#223-biz" class="md-nav__link">
+    2.2.3 Biz业务模块
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23" class="md-nav__link">
+    2.3 业务执行流程详解
+  </a>
+  
+    <nav class="md-nav" aria-label="2.3 业务执行流程详解">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#231" class="md-nav__link">
+    2.3.1 入口
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#232" class="md-nav__link">
+    2.3.2 派发业务
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#233" class="md-nav__link">
+    2.3.3 执行业务
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#234" class="md-nav__link">
+    2.3.4 封装返回结果
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#235" class="md-nav__link">
+    2.3.5 其它类型业务流程
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24" class="md-nav__link">
+    2.4 业务扩展指南
+  </a>
+  
+    <nav class="md-nav" aria-label="2.4 业务扩展指南">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#241" class="md-nav__link">
+    2.4.1 新增业务枚举
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#242" class="md-nav__link">
+    2.4.2 新增入参
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#243" class="md-nav__link">
+    2.4.3 新增业务执行函数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#244" class="md-nav__link">
+    2.4.4 书写其它部分代码
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25" class="md-nav__link">
+    2.5 框架特性介绍
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    三、后端编程规范
+  </a>
+  
+    <nav class="md-nav" aria-label="三、后端编程规范">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    3.1 业务逻辑规范
+  </a>
+  
+    <nav class="md-nav" aria-label="3.1 业务逻辑规范">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#311" class="md-nav__link">
+    3.1.1 不可违背的业务逻辑规范
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#322" class="md-nav__link">
+    3.2.2 推荐性的业务逻辑规范
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    3.2 代码书写规范
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    四、后端运行教程
+  </a>
+  
+    <nav class="md-nav" aria-label="四、后端运行教程">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-docker" class="md-nav__link">
+    4.1 安装Docker
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42" class="md-nav__link">
+    4.2 导入镜像
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-docker" class="md-nav__link">
+    4.3 创建Docker容器
+  </a>
+  
+    <nav class="md-nav" aria-label="4.3 创建Docker容器">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#431-macwindows" class="md-nav__link">
+    4.3.1 Mac和Windows系统
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#432-linux" class="md-nav__link">
+    4.3.2 Linux系统
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#433" class="md-nav__link">
+    4.3.3 关闭和启动容器
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44-redismongodb" class="md-nav__link">
+    4.4 启动Redis和Mongodb
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#45-java" class="md-nav__link">
+    4.5 启动Java服务器
+  </a>
+  
+    <nav class="md-nav" aria-label="4.5 启动Java服务器">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#451-macwindows" class="md-nav__link">
+    4.5.1 Mac和Windows系统
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#452-linux" class="md-nav__link">
+    4.5.2 Linux系统
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#46" class="md-nav__link">
+    4.6 运行测试业务
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    五、课程共用服务器访问指南
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+<h1 id="java">Java后端框架说明文档</h1>
+<p>为了帮助同学们进行大作业的后端框架，同学们可以<a href="https://cloud.tsinghua.edu.cn/f/94b286afcf8d4bbf963b/?dl=1">点击链接下载</a></p>
+<h2 id="_1">一、后端依赖</h2>
+<p>​       本课程的后端框架由助教搭建，为了完美运行后端框架，同学们需要安装的依赖如下：</p>
+<ul>
+<li><strong>Java</strong>：需要的Java版本为<strong>1.8</strong>以上，框架中使用到了Java的<strong>反射机制</strong>、<strong>注解</strong>等特性，需要同学们自行学习相关内容。</li>
+<li><strong>Maven</strong>：一个<strong>项目管理工具</strong>，是 Apache 下的一个纯 Java 开发的开源项目。用于管理项目的构建、生成文档、解析依赖、发布等过程。你可以使用Maven快速地引入别人开发好的Java包、自动生成Java文档、快速构建及发布Java项目。想了解更多细节请查看<a href="http://maven.apache.org/index.html">官方文档</a>。</li>
+<li>
+<p><strong>SpringBoot</strong>：一个<strong>Java后台框架</strong>，可以简化<strong>Spring</strong>应用的搭建以及开发过程，是当前最流行的Java后端框架之一，请同学们自学<strong>Spring</strong>相关知识，主要关注<strong>AOP（面向切面编程）</strong>概念即可。</p>
+</li>
+<li>
+<p><strong>MongoDB</strong>：一个<strong>非关系型数据库</strong>，旨在为 WEB 应用提供可扩展的高性能数据存储解决方案。MongoDB数据库按照JSON格式存储单个对象，这意味着MongoDB可以存储复杂的数据类型（如数组、字典等）。关系型数据库数据关联性强，存储格式限制性大，以致于经常需要连表查询，出现冗长的SQL语句，MongoDB通过JSON格式的存储很好地避免了这一点。同时在正常情况下MongoDB不再支持事务机制，拥有比关系型数据库更高的并发，但是MongoDB提供了一系列原子性操作，保证了数据的完整性。MongoDB是当前使用最广的<strong>非关系型数据库</strong>。想了解更多细节可以查看<a href="https://docs.mongoing.com/">MongoDB相关文档</a>，MongoDB集合在Spring中的api文档请<a href="https://docs.spring.io/spring-data/mongodb/docs/current/api/org/springframework/data/mongodb/core/MongoTemplate.html">点击此处</a>。</p>
+</li>
+<li><strong>Redis</strong>：一个<strong>Key-Value</strong>存储式<strong>内存数据库</strong>，其有几大特点：①全部数据存储在内存之中，避免了磁盘操作带来的瓶颈，拥有极快的访问速度；②采用<strong>Key-Value</strong>形式存储内容，使用哈希进行索引，理论上的查询时间复杂度为O(1)级别，可以看做一个加强版的HashMap；③采用单线程处理业务逻辑（利用了I/O多路复用原则，解析请求是多线程的），保证了两个业务逻辑一定有先后顺序，不可能同时执行，不需要考虑竞争的问题。由于以上原则，Redis数据库的并发很高，比普通的硬盘数据库普遍快5倍以上，Redis数据库一般用于缓存，提高高并发下的系统运行效率。想了解更多细节可以查看<a href="http://www.redis.cn/documentation.html">Redis官方文档</a>，同时可以参考<a href="http://redisdoc.com/">Redis指令API文档</a>。</li>
+<li><strong>Nginx</strong>：一个高性能的HTTP和反向代理服务器，在本项目中主要使用到其<strong>端口转发</strong>和<strong>静态文件代理</strong>的功能。有<a href="https://www.nginx.cn/doc/">Nginx文档</a>可供大家参考。</li>
+<li><strong>Docker</strong>（<font color="red" size=2>唯一需要同学自己安装的依赖</font>）：一个<strong>轻量级的虚拟化容器</strong>。Docker可以在所有系统上安装，是一个轻量级的虚拟机，用户可以在Docker容器中运行一个独立于电脑主机的新系统，然后在系统上安装依赖、修改文件等。同时容器还可以打包导出为镜像，方便他人或自己在其它电脑上导入。其作用类似于Java虚拟机，即屏蔽不同系统的底层细节，为在其中运行的程序提供统一的接口。不同的是Java虚拟机上只能运行Java程序，而Docker容器上运行的则是一个虚拟机系统，用户可以随意迁移虚拟机系统而不会报错。实现了一次配置，多次利用的功能。了解更多请参考<a href="http://www.dockerinfo.net/document">Docker文档</a>，安装Docker和使用可以查看<a href="https://www.runoob.com/docker/docker-tutorial.html">Docker教程</a>。<font color="red">助教已经将后端框架所需要的全部依赖都封装于Docker容器中，同学们只需要安装好Docker然后导入Course.tar镜像文件就可以直接运行后端框架了，具体操作过程请参考第四章！</font></li>
+</ul>
+<p>​       以上相关内容请同学们自学为主，课堂上不会展开详细的介绍，同学们可以先掌握一个基本，主要是多实战。实战多了，坑踩多了，很多东西理解就深入了。</p>
+<h2 id="_2">二、后端框架解析</h2>
+<h3 id="21">2.1 目录介绍</h3>
+<p>​       使用<strong>IntelliJ IDEA</strong>打开项目文件，可以观察到的项目目录如下：</p>
+<p><img src="../img/pictures/框架目录.png" /></p>
+<p>​       其中</p>
+<ul>
+<li><strong>.idea</strong>文件夹：IDEA的配置文件夹，不需要修改，忽略。</li>
+<li><strong>.mvn</strong>文件夹：Maven的配置文件夹，不需要修改，忽略。</li>
+<li><strong>logs</strong>文件夹：项目配置的日志输出目录，存储着服务器的<strong>运行日志</strong>，你可以在项目设置中修改为其它的路径。</li>
+<li><strong>src</strong>文件夹：项目的Java源码和资源文件所在文件夹。</li>
+<li><strong>pom.xml</strong>：Maven的配置文件，如果需要修改外部依赖，则需要修改此文件。</li>
+<li>其它文件：都是默认的配置文件，不需要修改，忽略。</li>
+</ul>
+<p>​       <strong>src</strong>文件夹中存储着项目的主体：</p>
+<p><img alt="" src="../img/pictures/src目录.png" /></p>
+<ul>
+<li><strong>main.java</strong>文件夹：存储项目的Java源码，都在<strong>com.flying.dragon</strong>包中。</li>
+<li><strong>main.resources</strong>文件夹：存储着项目的资源文件，其中<strong>application.properties</strong>为SpringBoot配置文件，<strong>logback.xml</strong>为日志配置文件。</li>
+</ul>
+<h3 id="22">2.2 框架结构分析</h3>
+<p><img alt="" src="../img/pictures/三大模块.png" /></p>
+<p>​       如图，项目的主要代码由三大模块组成（<strong>DragonApplication</strong>是<strong>SpringBoot</strong>设置的默认的启动类，只负责启动应用，没有什么内部逻辑，不包含在模块中）：①<strong>Base基础模块</strong>；②<strong>Biz业务模块</strong>；③<strong>Frame框架模块</strong>。</p>
+<p><img src="../img/pictures/截屏2021-02-06 11.02.05.png" style="zoom:50%;" /></p>
+<p>​       如图为三大模块之间的相互关系，下面将对这三大模块展开详细的介绍。</p>
+<h4 id="221-base">2.2.1 Base基础模块</h4>
+<p><img alt="" src="../img/pictures/base模块.png" /></p>
+<p>​       <strong>Base基础模块</strong>主要是为项目提供基础属性，如</p>
+<ul>
+<li>
+<p><strong>Annotation注解</strong>：项目的所有Java注解。</p>
+</li>
+<li>
+<p><strong>Constant常量</strong>：项目的所有常量。</p>
+</li>
+<li>
+<p><strong>Enum枚举</strong>：项目中的所有枚举，报错、警告和业务枚举不在此中。</p>
+</li>
+<li>
+<p><strong>Error错误</strong>：项目中所有的报错，包括警告和错误的枚举类。</p>
+</li>
+<li>
+<p><strong>Model模型</strong>：项目中所有的模型，模型与数据库中的文档一一对应，当对象从数据库中读取出来会自动映射到对应的模型类中。</p>
+</li>
+</ul>
+<p>值得一提的是，<strong>Base基础模块</strong>中都是<strong>静态数据</strong>，没有动态代码，<strong>Biz业务模块</strong>和<strong>Frame框架模块</strong>都可以利用到这些数据。</p>
+<h4 id="222-frame">2.2.2 Frame框架模块</h4>
+<p><img alt="" src="../img/pictures/frame模块.png" /></p>
+<p>​       <strong>Frame框架模块</strong>搭建了项目的整体框架，并为<strong>Biz业务模块</strong>的业务运行提供了必需的工具，如：</p>
+<ul>
+<li><strong>Aspect</strong>切面：定义了项目中的所有切面（切面意义请自行学习<strong>Spring</strong>），切面可以控制业务的具体执行流程，如<strong>LogInAspect</strong>切面将判断用户是否登录和具有对应权限，有对应权限则执行对应业务，否则通过报错中断业务的执行。</li>
+<li><strong>Config</strong>配置：定义了项目中的所有配置，这些配置是项目运行的基础，没有了这些配置，项目会运行不起来。<strong>WebSocketConfiguration</strong>配置了<strong>WebSocket</strong>监听端口，让后端可以处理<strong>WebSocket</strong>请求；而<strong>RedisConfig</strong>配置则配置了与<strong>Redis</strong>数据库的连接，让用户可以连接并处理<strong>Redis</strong>缓存。</li>
+<li><strong>Util</strong>工具：定义了所有的工具类，这些类是被<strong>Biz业务模块</strong>广泛使用的，但又与业务逻辑无关的。这些工具类也都是助教以前在其它项目中使用过的。如<strong>RedisUtil</strong>工具类封装了对<strong>Redis</strong>数据库的便捷操作，封装的函数非常多，是以前的项目有这么多需求，所以写了这么多，这次只不过是复制粘贴过来了，所以里面的内容很全。相对于<strong>Biz业务模块</strong>与业务高度相关的代码，这部分的代码具有极强的可复用性，换言之，这些工具类换了一个项目也可以继续使用，不需要被替换。具体每个工具类的作用可以查看相关注解。</li>
+</ul>
+<h4 id="223-biz">2.2.3 Biz业务模块</h4>
+<p><img alt="" src="../img/pictures/biz模块.png" /></p>
+<p>​       <strong>Biz业务模块</strong>是项目中最核心的部分，<strong>Base基础模块</strong>和<strong>Frame框架模块</strong>都是为<strong>Biz业务模块</strong>提供服务的，项目中所有的业务逻辑譬如用户登录、用户注册、注销登录等都在<strong>Biz业务模块</strong>中处理。业务模块有五大子模块和一大组件：</p>
+<ul>
+<li><strong>Entrance</strong>子模块：处理所有的外部请求，对外部请求进行封装，然后转发到分发器<strong>Dispatcher</strong>中。其中<strong>Http</strong>请求普遍使用<strong>Entrance.Controller</strong>处理，定时器请求使用<strong>TimerJobHandler</strong>处理，<strong>WebSocket</strong>请求使用<strong>MySocketHandler</strong>处理。</li>
+<li><strong>Params</strong>子模块：保存了业务所有的入参及出参。</li>
+<li><strong>Manager</strong>子模块：业务第一层处理子模块，接受<strong>Dispatcher</strong>分发的业务并具体处理业务、返回处理结果，此模块不与<strong>MongoDB</strong>数据库进行交互。</li>
+<li><strong>Processor</strong>子模块：业务第二层处理子模块，负责执行<strong>原子逻辑</strong>，直接与<strong>MongoDB</strong>数据库进行交互，提供接口给第一层业务处理组件<strong>Manager</strong>层，具有高度的可复用性。如根据用户名获取用户、删除一个用户、增加一个用户，这些都是<strong>原子逻辑</strong>。</li>
+<li><strong>BizType</strong>子模块：业务枚举模块，每个枚举类都会列举出该类型所有的业务。每个业务对应一次具体的请求，<strong>Manager</strong>模块中的每个执行逻辑都对应一个业务。</li>
+<li><strong>Dispatcher</strong>组件：业务分发器，负责根据不同的业务参数输入，将不同的业务请求派发到对应的<strong>Manager</strong>处理逻辑之中。</li>
+</ul>
+<p>​       外部请求统一由<strong>Entrance</strong>接受，然后转发给<strong>Dispatcher</strong>，<strong>Dispatcher</strong>再派发给<strong>Manager</strong>，由<strong>Manager</strong>调用<strong>Processor</strong>接口完成业务逻辑处理，这四个部分的关系如下图所示：</p>
+<p><img src="../img/pictures/处理示意图.png" style="zoom:50%;" /></p>
+<p>​       </p>
+<h3 id="23">2.3 业务执行流程详解</h3>
+<p>​       为了加深同学们的理解，下面将介绍一次业务——<strong>用户登录</strong>在框架中的详细执行过程，在运行框架前，请同学们先配置好<strong>Redis</strong>和<strong>Mongodb</strong>数据库，具体配置过程请查看<strong>第四章</strong>，不然可能会报错。在服务器启动以后，在浏览器中输入http://localhost:8080/user/login?username=test&amp;password=test，后端会处理相关请求，具体处理流程如下。</p>
+<h4 id="231">2.3.1 入口</h4>
+<p>​       前面提到过，<strong>Entrance</strong>模块中管理了所有的入口，意味着业务在执行前都会进入此包中。其中<strong>Controller</strong>管理了所有的<strong>Http</strong>入口，意味着所有的<strong>Http</strong>请求都会进入此包中，查看此包中<strong>UserController</strong>类的代码，如下：</p>
+<pre><code class="language-java">/**
+ * @描述 用户控制器，处理外部传入的操作用户业务的http请求
+ **/
+@RestController
+@RequestMapping(&quot;/user&quot;)
+public class UserController {
+    @Autowired
+    Dispatcher dispatcher;
+
+    /** 用户登录http接口 */
+    @RequestMapping(value=&quot;/login&quot;)
+    public Mono&lt;String&gt; login(LoginInParams inParams) {
+        inParams.setBizTypeStr(UserBizEnum.USER_LOG_IN.toString());
+        return Mono.just(dispatcher.dispatch(inParams));
+    }
+
+    /** 用户退出登录http接口 */
+    @GetMapping(value=&quot;/logout&quot;) /** 使用注解可以限制请求的方式，此注解限制只能通过 get 方式请求 */
+    public Mono&lt;String&gt; logout(CommonInParams inParams) {
+        inParams.setBizTypeStr(UserBizEnum.USER_LOG_OUT.toString());
+        return Mono.just(dispatcher.dispatch(inParams));
+    }
+}
+</code></pre>
+<p>​       可以看到此类有两个注解，第一个注解<strong>RestController</strong>是告诉<strong>SpringBoot</strong>我这一个类用于处理<strong>Http</strong>请求的，第二个注解<strong>RequetMapping</strong>是告诉<strong>SpringBoot</strong>我这一个类处理的<strong>http</strong>请求路径是<strong>/user</strong>。那么访问<strong>/user/login</strong>，将会跳转到此类中的带<strong>RequetMapping(value="/login")</strong>注解的函数中，即<strong>login</strong>函数。可以看到此函数的入参为一个类<strong>LoginInParams</strong>，此类为业务的入参类，具体路径为<strong>com.flying.dragon.Biz.Params.UserParams.in.LoginInParams</strong>，内部代码如下：</p>
+<pre><code class="language-java">@BizType(userBiz = UserBizEnum.USER_LOG_IN)
+public class LoginInParams extends CommonInParams {
+    // 登录用的密码
+    @Required
+    private String username;
+    // 登录用的密码
+    @Required
+    private String password;
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+}
+</code></pre>
+<p>​       可以看到此类中有两个属性username和password，<strong>SpringBoot</strong>会自动解析<strong>http</strong>请求中携带的所有参数（包括<strong>路径参数</strong>、<strong>表单参数</strong>等）并将其自动放入名称对应的属性值中。此类继承自<strong>CommonInParams</strong>类，该类中有一个必须设置的参数<strong>bizTypeStr</strong>，此参数会标识业务类型，保证业务被正常处理。在<strong>login</strong>函数中，我们将参数的业务类型设置为<strong>com.flying.dragon.Biz.BizType.UserBizEnum.USER_LOG_IN</strong>，表明这是用户登录业务。</p>
+<h4 id="232">2.3.2 派发业务</h4>
+<p>​       在<strong>login</strong>函数的最后一行，调用<strong>Dispatcher</strong>类的<strong>dispatch</strong>函数来派发业务。<strong>com.flying.dragon.Biz.Dispatcher</strong>的<strong>dispatch</strong>函数代码较长，在此不一一列举，只解析其中的关键部分：</p>
+<p><img src="../img/pictures/代码3.png" style="zoom:50%;" /></p>
+<p>​       第51-68行代码会根据参数中的<strong>bizTypeStr</strong>，获取执行业务的类和函数。在<strong>com.flying.dragon.Biz.Manager.UserManager</strong>中有个函数userLogin，其注解为<code>@BizType(userBiz = UserBizEnum.USER_LOG_IN)</code>，系统在初始化的时候会根据这个注解初始化业务名称到函数的Map，以后就会根据这个Map(<strong>CommonManager.managerMap</strong>)来获取到业务执行的函数。具体初始化的流程请查看<strong>com.flying.dragon.DragonApplication</strong>中相关代码。</p>
+<p><img src="../img/pictures/代码4.png" style="zoom:50%;" /></p>
+<p>​       <strong>dispatch</strong>函数中正是根据这个<strong>CommonManager.managerMap</strong>来获取业务执行的函数和类。在获取到业务执行的函数和类之后，就会使用java的反射机制来执行这个函数，并返回函数的处理结果。此外<strong>dispatch</strong>函数中还会捕获并处理所有的异常，将异常记录在<strong>日志文件</strong>中，日志文件的路径为<strong>/logs</strong>。</p>
+<h4 id="233">2.3.3 执行业务</h4>
+<p>​       在经过业务分发以后执行逻辑会进入到<strong>UserManager.userLogin</strong>函数中，如下图所示：</p>
+<p><img src="../img/pictures/代码5.png" style="zoom:50%;" /></p>
+<p>​       这里就可以正常地书写我们的业务代码了，可以看到这里获取到了参数中的用户名，然后根据用户名查找用户，值得一提的是，如果没有连接好<strong>mongodb</strong>，这里的<strong>userProcessor.getUserByUsername</strong>函数将会处理很长一段时间并报错。一但用户名和密码匹配正确以后，就会判断当前是<strong>http</strong>还是<strong>WebSocket</strong>访问，然后记录登录状态。最后，所有的业务执行返回结果都必须为<strong>CommonOutParams</strong>或其子类。这里业务逻辑简单，只需要返回登录成功与否的结果，所以可以直接返回一个新的<strong>CommonOutParams</strong>实例，如果需要返回给客户端多个参数，需要新建<strong>CommonOutParams</strong>的子类，并设置对应的属性。</p>
+<h4 id="234">2.3.4 封装返回结果</h4>
+<p>​       在<strong>Manger</strong>层返回后，<strong>dispatch</strong>会封装<strong>Manger</strong>返回的结果，如下图：</p>
+<p><img src="../img/pictures/代码6.png" style="zoom:50%;" /></p>
+<p>​       这里会把所有的返回结果都转化为JSON格式，返回值可以是单个参数，也可以是多个参数（会转化为JSON数组）。具体转化细节请自行查看源码，其实很简单，使用<strong>java的反射机制</strong>就可以轻松实现。这个返回结果会在最后使用Mono.just封装然后返回给客户端，一个完整的<strong>Http</strong>请求就完成了！</p>
+<p>​       此外，如果业务执行中抛出错误，dispatch函数也会自行捕获错误，并将错误信息记录在日志中，然后返回给客户端，如下：</p>
+<p><img src="../img/pictures/代码7.png" style="zoom:50%;" /></p>
+<p>​       内部抛出的错误可以分为三种：①自定义警告，记录警告日志，并将错误内容返回给客户端；②自定义错误，记录错误日志，并将错误内容返回给客户端；③系统错误，记录错误日志，并返回服务器内部错误，这种错误一定要特别留意，因为是预期之外的错误，请查看错误日志追寻缘由！</p>
+<h4 id="235">2.3.5 其它类型业务流程</h4>
+<p>​       WebSocket和定时器业务的执行流程，除了入口部分由<strong>Controller</strong>变为<strong>com.flying.dragon.Biz.Entrance.MySocketHandler</strong>和<strong>com.flying.dragon.Biz.Entrance.TimerJobHandler</strong>，其余部分和Http请求的执行流程完全一样，没有任何区别，因为二者也使用<strong>dispatcher</strong>分发器来分发业务，后续的业务流程完全一致。系统会在线程变量中使用<strong>com.flying.dragon.Base.Enum.AccessChannel</strong>来标识此次业务是http还是WebSocket或定时器业务。这两个入口的具体处理过程请同学们自行查看源码来了解，注意<strong>WebSocket</strong>传输的参数一定要是JSON格式的，且其中的属性与你定义的继承自<strong>CommonInParams</strong>类的入参类中的属性名称一一对应，不然会出错！</p>
+<h3 id="24">2.4 业务扩展指南</h3>
+<p>​       同学们如果需要扩展业务，需要干的事情如下。</p>
+<h4 id="241">2.4.1 新增业务枚举</h4>
+<p>​       如果是在已经存在的业务类型（框架中已经存在<strong>测试业务类型com.flying.dragon.Biz.BizType.TestBizEnum</strong>和<strong>用户业务类型com.flying.dragon.Biz.BizType.UserBizEnum</strong>）中增加同类型业务，只需要增加枚举变量即可。如果是新增某种类型的业务，需要新建业务枚举类，业务枚举类中必须设置一个空业务<strong>NULL_BIZ</strong>，此外需要在<strong>com.flying.dragon.Base.Annotation.BizType</strong>类中增加你的业务属性并设置default值为对应业务的<strong>NULL_BIZ</strong>，如下图：</p>
+<p><img src="../img/pictures/代码8.png" style="zoom:50%;" /></p>
+<h4 id="242">2.4.2 新增入参</h4>
+<p>​       每个业务必须有对应的入参，且每个入参都需要注解出该入参对应的业务，如下图：</p>
+<p><img src="../img/pictures/代码9.png" style="zoom:50%;" /></p>
+<p>​       此图为用户登录业务对应的入参。你在新增业务的时候需要仿照此类来书写自己的入参，每个业务的入参都需要继承自<strong>CommonInParams</strong>类，且必须通过<strong>BizType</strong>注解声明自己对应的业务。</p>
+<h4 id="243">2.4.3 新增业务执行函数</h4>
+<p>​       如果是新业务类型，需要新建<strong>Manger</strong>类，且新建的<strong>Manger</strong>类必须继承自<strong>CommonManager</strong>，否则在已有的<strong>Manager</strong>类中增加函数，并设置<strong>BizType</strong>注解，如下图：</p>
+<p><img src="../img/pictures/代码10.png" style="zoom:50%;" /></p>
+<p>​       要求有三：①函数的入参必须为业务对应的入参类，即注解了该业务类型的继承自<strong>CommonInParams</strong>的类或其本身；②函数的出参必须为继承自<strong>CommonOutParams</strong>的类或其本身；③函数必须注解<strong>BizType</strong>，且指定其中的一种业务，则分发器会将该业务自动分发给此函数处理，指定多种业务时，只会匹配第一个业务。</p>
+<h4 id="244">2.4.4 书写其它部分代码</h4>
+<p>​       此外，你还需要根据自己的业务需求，书写其余部分的代码，具体如何书写由你自己决定。</p>
+<h3 id="25">2.5 框架特性介绍</h3>
+<p>​       本框架内容追求<strong>高度模块化</strong>的原则，系统<strong>可扩展性极强</strong>，不管是小型系统开发还是大型系统开发都可以在此框架基础上拓展完成，是一个不错的Java服务器框架。在刚开始写代码的时候，同学们可能会感觉内部逻辑复杂，因为代码模块较多，新增一个业务可能需要修改多个模块。但是随着代码量的增加，业务的复杂程度不断上升，此框架良好的扩展性就会发挥作用，此框架可以保证大量的业务扩展而很难发生内部逻辑紊乱，这一点同学们可以在实际开发中慢慢体会。</p>
+<p>​       此外，框架中封装了Quartz定时任务组件，同学们可以调用此组件完成服务器的定时任务。同时增加了<strong>Logback</strong>日志系统，方便同学追踪用户行为、定位服务器内部错误，日志的具体配置文件是<strong>resources/logback.xml</strong>。感兴趣的同学甚至还可以在日志系统的基础上配置日志监控，将日志内容图表化，可以更方便地统计自己的各业务执行状态，配置方式请自行搜索<strong>ELK(ElasticSearch + Kibana + Logstash)</strong>了解。</p>
+<h2 id="_3">三、后端编程规范</h2>
+<h3 id="31">3.1 业务逻辑规范</h3>
+<p>​       业务逻辑规范分为<strong>不可违背</strong>和<strong>推荐性</strong>两大块，<strong>不可违背</strong>业务逻辑规范一旦被违背，则代码得分将大大降低，<strong>推荐性</strong>业务规范视完成程度酌情给分。</p>
+<h4 id="311">3.1.1 不可违背的业务逻辑规范</h4>
+<ol>
+<li>所有外部请求必须经过<strong>Entrance</strong>处理，然后交由<strong>Dispatcher</strong>派发，才能转入内部执行，严禁任何外部请求绕过<strong>Entrance</strong>和<strong>Dispatcher</strong>转入内部执行，避免业务执行逻辑混乱。</li>
+<li><strong>Dispatcher</strong>派发的请求只能派发给第一层业务处理逻辑<strong>Manager</strong>层执行，严禁将业务派发给第二层<strong>Processor</strong>层，避免业务派发逻辑混乱。</li>
+<li>
+<p><strong>Manager</strong>层<strong>业务执行函数</strong>的入参必须是<strong>CommonInParams</strong>或其子类，出参必须是<strong>CommonOutParams</strong>或其子类，这么做是为了规范业务入参和出参的格式，保证日后查看业务逻辑时不会出现出入参的紊乱。<strong>Processor</strong>层的出参和入参随意。</p>
+</li>
+<li>
+<p><strong>Manager</strong>层可以调用<strong>Manager</strong>和<strong>Processor</strong>层的函数，<strong>Processor</strong>层只能调用<strong>Processor</strong>层的函数，严禁<strong>Processor</strong>层调用<strong>Manager</strong>层的函数，避免调用逻辑层级的混乱。</p>
+</li>
+<li>硬盘数据库(<strong>Mongodb</strong>)数据只能通过<strong>Processor</strong>层直接访问，严禁<strong>Manager</strong>层直接访问硬盘数据库，缓存数据库(<strong>Redis</strong>)随意，避免硬盘数据库操作逻辑混乱。</li>
+<li>所有可能出现报错的业务逻辑都应该被<strong>try-catch</strong>包裹并处理，严禁出现任何不可能被捕获的异常，且必须记录异常日志，避免内部异常带来的业务逻辑混乱。同学们如果新增<strong>Entrance</strong>逻辑需要保证满足这一条原则。</li>
+<li>所有的自定义报错均需列举在枚举类中（可参考<strong>SystemErrorEnum</strong>和<strong>UserWarnEnum</strong>示例），方便日后追溯根源。</li>
+</ol>
+<h4 id="322">3.2.2 推荐性的业务逻辑规范</h4>
+<ol>
+<li>执行关键操作时记录日志，方便根据日志追踪用户行为。</li>
+<li>尽量将可复用的、需多次重复使用的、与业务无关的处理逻辑封装在<strong>Frame框架模块</strong>的<strong>Util工具包</strong>中，方便日后复用。</li>
+</ol>
+<h3 id="32">3.2 代码书写规范</h3>
+<ol>
+<li>代码应该书写工整，利用换行符、空格符保证代码的可读性，出现冗长的单行代码是较大的扣分项。</li>
+<li>每个类、类中的每个字段和方法（除get和set方法）都需要有对应的注释说明，方法中如果代码量较多，也应该分块予以注释说明。</li>
+<li>代码整体组织结构需要按照<strong>Base基础模块</strong>、<strong>Frame框架模块</strong>和<strong>Biz业务模块</strong>的三大模块原则来进行，且每个类应该按照相关性放在对应的包中。实际上框架已经帮大家分好模块和包了，基本上只需要在框架已有的包上进行扩展即可。</li>
+</ol>
+<h2 id="_4">四、后端运行教程</h2>
+<p>​       由于<strong>Mac</strong>和<strong>Windows</strong>下的<strong>Docker</strong>实际运行在虚拟机上，而<strong>Linux</strong>下的<strong>Docker</strong>则直接运行在系统上，所以部分教程会因为系统的不同有所区别，没有写明不同系统的代表是所有系统通用的部分。</p>
+<h3 id="41-docker">4.1 安装Docker</h3>
+<p>​       参考<a href="https://www.runoob.com/docker/docker-tutorial.html">Docker教程</a>安装docker并配置好环境变量。</p>
+<h3 id="42">4.2 导入镜像</h3>
+<p>​       助教已经将所有的环境依赖直接封装在一个docker镜像文件course.tar中，请访问<a href="https://cloud.tsinghua.edu.cn/f/f2f5d3eebeb54b1d87cf/">链接</a>下载镜像，同学们只需要运行如下命令导入该镜像即可：</p>
+<pre><code class="language-bash">docker import course.tar course:v1
+</code></pre>
+<p>​       然后运行<code>docker images</code>命令就可以看到导入的镜像文件。</p>
+<h3 id="43-docker">4.3 创建Docker容器</h3>
+<h4 id="431-macwindows">4.3.1 Mac和Windows系统</h4>
+<p>​       对于Mac和Window系统，运行如下命令以创建docker容器：</p>
+<pre><code class="language-bash">docker run -itd -p 8070-8090:8070-8090 -p 6379:6379 -p 27017:27017 --name myWork course:v1 bash
+</code></pre>
+<p>​       其中<code>docker run</code>代表创建并运行容器，其它参数说明如下：</p>
+<ul>
+<li><code>-itd</code>：-i 交互式操作；-t 在终端运行命令；-d在后台运行。</li>
+<li><code>-p 8070-8090:8070-8090 -p 6379:6379 -p 27017:27017</code>：指定端口映射，将6378、27017和8070-8090的容器端口映射到主机端口上，访问主机的这些端口就相当于访问容器的对应端口，不应该映射过多个端口，否则容器的启动会非常慢。</li>
+<li><code>--name myWork</code>：指定容器的名称为myWork，你可以自行设置容器名称。</li>
+<li><code>course:v1</code>：创建容器用的镜像，这个镜像是之前通过<code>docker import</code>导入的镜像。</li>
+<li><code>bash</code>：在容器中运行的具体命令，这个bash命令代表运行命令行。</li>
+</ul>
+<h4 id="432-linux">4.3.2 Linux系统</h4>
+<p>​       对于Linux系统，运行如下命令以创建docker容器：</p>
+<pre><code class="language-bash">docker run -itd --name myWork --net=bridge course:v1 bash
+</code></pre>
+<p>​       其中<code>docker run</code>代表创建并运行容器，其它参数说明如下：</p>
+<ul>
+<li><code>-itd</code>：-i 交互式操作；-t 在终端运行命令；-d在后台运行。</li>
+<li><code>--name myWork</code>：指定容器的名称为myWork，你可以自行设置容器名称。</li>
+<li><code>--net=bridge</code>：指定容器的网络模式为bridge桥接模式，这样子系统会给每个容器分配一个内部ip地址，可以直接通过ip地址访问该容器。实际上不需要指定该选项，因为bridge是docker创建时候的默认网络选项。</li>
+<li><code>bash</code>：在容器中运行的具体命令，这个bash命令代表运行命令行。</li>
+</ul>
+<p>​       此种情况下，连接上（如何进入容器命令行请参考4.4章节）容器以后，在<strong>容器内</strong>部执行<code>ip address</code>命令，会显示如下内容：</p>
+<p><img alt="" src="../img/pictures/截屏2021-02-07 15.39.32.png" /></p>
+<p>​       其中<strong>eh0</strong>选项中的<strong>172.18.0.2</strong>即系统分配给容器的ip地址，在<strong>系统中</strong>（<strong>非容器中</strong>）ping该地址，是可以有反应的，如下图：</p>
+<p><img src="../img/pictures/截屏2021-02-07 15.41.22.png" style="zoom:50%;" /></p>
+<p>​       这个内部ip地址<font color=red><strong>非常重要</strong></font>，以后很多地方（如远程连接数据库，配置nginx端口转发等）都会用到这个内部ip地址。</p>
+<p>​        这里解释一下为什么在<strong>Linux</strong>系统中可以使用桥接模式而在<strong>Mac</strong>和<strong>Windows</strong>系统中需要使用端口映射的模式，这是因为<strong>Mac</strong>和<strong>Windows</strong>下的<strong>Docker</strong>实际运行在一个<strong>Docker</strong>自己开发的<strong>Linux</strong>虚拟机上，而<strong>Linux</strong>下的<strong>Docker</strong>则直接运行在系统上。使用桥接模式运行<strong>Docker</strong>容器，意味着运行容器的系统可以通过内部ip访问<strong>Docker</strong>容器，但是这个运行容器的系统对<strong>Mac</strong>和<strong>Windows</strong>而言是内部的虚拟机，其无法直接和<strong>Mac</strong>、<strong>Windows</strong>系统进行交互，所以在<strong>Mac</strong>和<strong>Windows</strong>系统上采用主机模式运行<strong>Docker</strong>是没有任何意义的，只能通过端口映射的方式来与系统交互。</p>
+<h4 id="433">4.3.3 关闭和启动容器</h4>
+<p>​        在创建容器后运行<code>docker ps</code>命令就可以看到所有正在运行的容器，<code>docker ps -a</code>则可以看到所有的容器（包括关闭的容器）。</p>
+<p>​       关闭容器的命令为</p>
+<pre><code class="language-bash">docker stop myWork
+</code></pre>
+<p>​       重启容器的命令为</p>
+<pre><code class="language-bash">docker start myWork
+</code></pre>
+<p>​       注意重启容器不是<code>docker run</code>，<code>docker run</code>会创建一个全新的容器，该新容器与旧容器数据完全隔离！</p>
+<h3 id="44-redismongodb">4.4 启动Redis和Mongodb</h3>
+<p>​       在创建完成容器以后，通过执行</p>
+<pre><code class="language-bash">docker exec -it myWork bash
+</code></pre>
+<p>​       命令连接容器的终端，通过终端对容器的内部进行操作。在运行完成该命令后，此时已经进入了容器的终端。通过<code>ps -aux</code>命令可以判断目前是否在容器中，这个命令可以展示目前所有正在运行的进程，容器中的进程一般很少且PID编号较小，而<strong>Linux</strong>系统本身会有很多个进程，且很多进程的PID编号较大，如下图为一个容器运行<code>ps -aux</code>命令展示的进程列表：</p>
+<p><img src="../img/pictures/截屏2021-02-07 09.12.26.png" style="zoom:50%;" /></p>
+<p>​       可以看到容器中目前只有五个进程在运行，其中两个进程是bash命令行进程，一个进程是<code>ps -aux</code>进程本身，剩下两个进程就是在容器中启动的<strong>MongoDB</strong>和<strong>Redis</strong>进程。之所以容器中的进程这么少是因为容器的依赖进程都已经在运行容器的系统（对于<strong>Mac</strong>和<strong>Window</strong>而言是虚拟机）上存在，容器不需要再创建这些进程，容器所做的只是将容器本身的环境与系统环境隔离开来而已。     </p>
+<p>​       容器中启动MongoDB的命令是：</p>
+<pre><code class="language-bash">mongod --config /etc/mongodb.conf &amp;
+</code></pre>
+<p>​       容器中启动Redis的命令是：</p>
+<pre><code class="language-bash">redis-server /etc/redis/redis.conf
+</code></pre>
+<p>​       此时运行<code>ps -aux</code>可以看到<strong>MongoDB</strong>和<strong>Redis</strong>的进程信息。可以下载<a href="https://www.mongodb.com/try/download/compass">MongoDB Compass</a>和<a href="https://github.com/qishibo/AnotherRedisDesktopManager">Another Redis Desktop Manager</a>来对MongoDB和Redis进行可视化操作。<strong>Redis</strong>可以使用默认配置直接连接不需要密码，本地连接<strong>MongoDB</strong>的配置如下图：</p>
+<p><img src="../img/pictures/截屏2021-02-06 21.45.34.png" style="zoom:50%;" /></p>
+<p>​       其中密码为<code>course2021</code>。</p>
+<p>​       远程连接<strong>Linux系统</strong>上的<strong>MongoDB</strong>和<strong>Redis</strong>都需要通过<strong>SSH隧道</strong>连接，且需要把<strong>Hostname</strong>从<strong>localhost</strong>改成容器的<strong>内部ip地址</strong>如<strong>172.18.0.2</strong>，如下图为使用<a href="https://github.com/qishibo/AnotherRedisDesktopManager">Another Redis Desktop Manager</a>远程连接<strong>Linux</strong>服务器上容器（内部IP为<strong>172.18.0.2</strong>）中的Redis数据库连接配置示例：</p>
+<p><img src="../img/pictures/截屏2021-02-22 15.27.28.png" style="zoom:70%;" /></p>
+<p>​       其中SSH隧道的host就是服务器公网IP，Username和Password就是服务器用户和密码。</p>
+<h3 id="45-java">4.5 启动Java服务器</h3>
+<h4 id="451-macwindows">4.5.1 Mac和Windows系统</h4>
+<p>​       首先需要通过<code>git clone</code>下载源码：</p>
+<pre><code class="language-bash">git clone https://github.com/xuwm14/dragon.git
+</code></pre>
+<p>​       一般而言，同学们使用<strong>Mac</strong>和<strong>Windows</strong>系统只是为了在本地调试服务器。在调试前需要同学们在系统上安装<strong>Maven</strong>。</p>
+<p>​       在安装好<strong>Maven</strong>以后，直接通过<strong>IntelliJ IDEA</strong>打开项目源码，然后右键点击<strong>pom.xml</strong>-&gt;<strong>Maven</strong>-&gt;<strong>Reimport</strong>，则<strong>Maven</strong>会自动下载项目所需的全部<strong>Java依赖包</strong>，在下载好之后就可以直接运行或者调试应用了，<strong>IntelliJ IDEA</strong>会自动识别出启动类<strong>com.flying.dragon.DragonApplication</strong>，如果没有识别出来请自己指定。</p>
+<p><img src="../img/pictures/截屏2021-02-06 21.57.17.png" style="zoom:50%;" /></p>
+<p>​       运行成功后在浏览器输入http://localhost:8080/user/login则可以获取到如下内容：</p>
+<p><img alt="" src="../img/pictures/访问结果.png" /></p>
+<p>​       然后通过<a href="http://coolaf.com/tool/chattest">连接WebSocket</a>，发送空文本内容，会收到如下所示消息：</p>
+<p><img alt="" src="/Users/song/学习/助教准备/新后端框架/pictures/访问结果2.png" /></p>
+<p>​       注意这种情况下，使用的<strong>MongoDB</strong>和<strong>Redis</strong>是运行在<strong>docker</strong>容器中的，容器停止运行会导致无法连接到<strong>MongoDB</strong>和<strong>Redis</strong>。但是<strong>Java</strong>服务器是运行在自己电脑上的。</p>
+<h4 id="452-linux">4.5.2 Linux系统</h4>
+<p>​       将<strong>Java</strong>源码上传到<strong>Linux服务器</strong>上，上传方式请自行选择。</p>
+<p>​       然后在<strong>系统中</strong>（<strong>非容器中</strong>）运行如下命令将<strong>Java</strong>源码拷贝到<strong>docker</strong>容器中：</p>
+<pre><code class="language-bash">docker cp /path/filename 容器id或名称:/path/filename
+</code></pre>
+<p>​       或者也可以在容器中通过<code>git clone</code>直接下载源码：</p>
+<pre><code class="language-bash">git clone https://github.com/xuwm14/dragon.git
+</code></pre>
+<p>​       进入容器的源码主目录下（即包含<strong>pom.xml</strong>的目录），运行</p>
+<pre><code class="language-bash">mvn install
+</code></pre>
+<p>​       此时容器会通过<strong>maven</strong>自动下载项目依赖的所有<strong>jar</strong>包，第一次运行需要下载很多依赖包，时间比较漫长，请耐心等待容器下载完成，在依赖包下载完成后还会自动将项目打包成<strong>jar</strong>包。打包完成的<strong>jar</strong>包存储在<strong>target</strong>目录中，名称为<strong>dragon-0.0.1.jar</strong>，以后代码有修改时需要重新打包也可以运行此命令。</p>
+<p>​       此时进入<strong>jar</strong>包所在目录执行</p>
+<pre><code class="language-bash">nohup java -jar dragon-0.0.1.jar &amp;
+</code></pre>
+<p>​       则服务器会在后台启动，在这种情况下，<strong>MongoDB</strong>、<strong>Redis</strong>和<strong>java</strong>应用程序都是运行在容器之中的，在<strong>Linux系统（非容器中）</strong>中输入</p>
+<pre><code class="language-bash">curl http://172.18.0.2:8080/user/login
+</code></pre>
+<p>​       其中的<code>172.18.0.2</code>请自行替换为自己容器的内部ip，返回如下信息说明服务器启动成功（注意启动需要一定的时间，具体进程可以查看<strong>nohup.out</strong>）：</p>
+<p><img alt="" src="../img/pictures/访问结果3.png" /></p>
+<p>​       可以在<strong>容器</strong>的<strong>warn</strong>日志文件中查看更多内容，日志文件目录为<strong>容器</strong>中<strong>jar</strong>包文件同级目录<strong>logs</strong>。但是此时的服务只可以在内部访问，因为<code>172.18.0.2</code>这是个内部ip地址，外部无法访问。这时候就需要利用到了<strong>nginx</strong>的转发功能。</p>
+<p>​       在<strong>系统中</strong>（<strong>非容器中</strong>）下载好<strong>nginx</strong>，配置如下：</p>
+<pre><code class="language-nginx">server{
+  listen 8000;  # 监听的端口
+
+  location / {
+    proxy_pass  http://172.18.0.2:8080; # 转发规则
+    proxy_set_header Host $proxy_host; # 修改转发请求头，让端口的应用可以受到真实的请求
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+  }
+}
+</code></pre>
+<p>​       启动<strong>nginx</strong>则会自动将<strong>8000</strong>端口的请求转发到容器<strong>172.18.0.2</strong>的<strong>8080</strong>端口，就可以在外部访问了。访问结果如下（需要服务器对外开放<strong>8000</strong>端口）：</p>
+<p><img src="../img/pictures/访问结果4.png" style="zoom:50%;" /></p>
+<h3 id="46">4.6 运行测试业务</h3>
+<p>​       为了方便大家判断自己环境是否配置正常，助教在框架中封装了一系列测试任务，如下图：</p>
+<p><img src="../img/pictures/测试业务.png" style="zoom:50%;" /></p>
+<p>​       如果所有的测试任务都可以正常执行，说明你的程序环境是完全没有问题的。至于怎么运行测试任务，请同学们仔细阅读框架代码，然后就会明白了。</p>
+<p>​       测试任务运行正常以后，同学们就可以在框架上开始自己的后台开发之旅了！</p>
+<h2 id="_5">五、课程共用服务器访问指南</h2>
+<p>在大作业布置的同时，我们会为同学们提供课程共用的服务器，介时会为同学提供服务器的访问指南。</p>
+<!-- ​      为了方便同学们进行后端编程，课程给同学们提供了免费的公用服务器，该服务器的ip地址是```8.140.133.34```，在小组组建完成以后，助教会给每个小组一个用户名和密码，同学们可以使用该用户名和密码登录到公用服务上，然后根据助教之前的教程，使用docker创建自己的容器，在自己的容器内进行开发，在开发完成后使用nginx将容器端口映射到真实的服务器端口上就可以在外部进行访问了。
+
+​       助教已经将课程的基础镜像导入到共用服务器中，同学们在服务器上运行
+
+
+<pre><code class="language-bash">docker images
+</code></pre>
+
+
+​       命令就可以看到助教提前导入的镜像，运行
+
+
+<pre><code class="language-bash">docker ps -a
+</code></pre>
+
+
+​       命令可以看到所有的容器，如果不加参数-a则会展示所有正在运行中的容器，助教已经在服务器上创建了myWork容器。
+
+​       nginx配置文件全都存储在```/etc/nginx/sites-enabled```目录下面，里面有助教提供的示例配置文件example，同学们可以仿照该示例配置文件新建自己的配置文件，将容器端口映射到服务器上。在修改好自己的配置后，运行
+
+
+<pre><code class="language-bash">nginx -s reload
+</code></pre>
+
+
+​       命令就可以让端口映射生效了。
+
+​       后台框架源码存放在目录```/course/code```下，导出的docker镜像存放在``/course/course.tar``中，已经将该镜像导入到docker中，同学们无须重复导入！
+
+​       为了保证同学们彼此之间的开发不会产生冲突，每个小组的docker容器会分配唯一的名称，同时会给每个小组分配几个固定的端口号和nginx配置名称，请小组同学在开发时使用自己的名称创建docker容器，并在配置nginx时只使用属于自己小组的端口号，<font color="red">任何不符合规范的容器或者nginx配置都可能会被删除而没有事先通知！</font> -->
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../%E5%A4%A7%E4%BD%9C%E4%B8%9A/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 大作业" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              大作业
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../%E8%AF%BE%E7%A8%8B%E5%9B%9E%E9%A1%BE%E5%8F%8A%E6%84%9F%E6%83%B3/" class="md-footer__link md-footer__link--next" aria-label="Next: 关于课程的回顾和一些感想" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              关于课程的回顾和一些感想
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.22074ed6.min.js"}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.960e086b.min.js"></script>
+      
+    
+  </body>
+</html>
