@@ -630,73 +630,73 @@
 </center></p>
 <h3 id="thread">代码讲解（Thread）</h3>
 <p>Thread类是java多线程的基础类，java中所有多线程的实现均通过封装Thread类实现。使用Thread类执行多线程需要实现其中的run()方法，然后调用start()方法启动线程。
-本示例实现Runnable接口，并实现该接口的run()方法。这种方法适合多个相同程序的代码去处理同一个资源的情况，把线程同程序的代码，数据有效的分离，较好体现了面向对象的设计思想。</p>
-<pre><code class="language-java">public class mThread implements Runnable{
-    @Override
-    public void run() {
-        try{
-            for(int i=0;i&lt;100;i++) {
-                Thread.sleep(10);
-                Message msg = new Message();
-                msg.what = 1;
-                msg.arg1 = i+1;
-                handler.sendMessage(msg);
-            }
-        } catch (Exception e) {e.printStackTrace();}
-    }
-}
-</code></pre>
+本示例实现Runnable接口，并实现该接口的run()方法。这种方法适合多个相同程序的代码去处理同一个资源的情况，把线程同程序的代码，数据有效的分离，较好体现了面向对象的设计思想。
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kd">public</span> <span class="kd">class</span> <span class="nc">mThread</span> <span class="kd">implements</span> <span class="n">Runnable</span><span class="p">{</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    <span class="nd">@Override</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="p">()</span> <span class="p">{</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>        <span class="k">try</span><span class="p">{</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>            <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="mi">100</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>                <span class="n">Thread</span><span class="p">.</span><span class="na">sleep</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>                <span class="n">Message</span> <span class="n">msg</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Message</span><span class="p">();</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>                <span class="n">msg</span><span class="p">.</span><span class="na">what</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>                <span class="n">msg</span><span class="p">.</span><span class="na">arg1</span> <span class="o">=</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>                <span class="n">handler</span><span class="p">.</span><span class="na">sendMessage</span><span class="p">(</span><span class="n">msg</span><span class="p">);</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>            <span class="p">}</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>        <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">Exception</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span><span class="n">e</span><span class="p">.</span><span class="na">printStackTrace</span><span class="p">();}</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>    <span class="p">}</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="p">}</span>
+</code></pre></div></p>
 <h3 id="asynctask">代码讲解（AsyncTask）</h3>
 <p>为了更方便地在子线程中进行更新UI操作，Android 基于异步处理消息机制封装了一个工具类 AsyncTask。
 AsyncTask 是个抽象类，所以要使用它必须创建一个子类 。 在继承时可以指定3个泛型参数Params（传入参数）Progress（运行时结果）和Result（返回值），本示例只需要改变Progress。</p>
 <p>创建Mytask继承AsyncTask并完成工作在子线程中的后台任务，并在点击事件中调用execute开始子线程任务。</p>
-<pre><code class="language-java">protected Void doInBackground(Void... params) {
-            try{
-                for(int i=0;i&lt;100;i++) {
-                    Thread.sleep(10);
-                    publishProgress(i+1);}}
-            catch (Exception e) {e.printStackTrace();}
-            return null;
-        }
-myTask = new MyTask();
-myTask.executeOnExecutor(Executors.newFixedThreadPool(1));
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kd">protected</span> <span class="n">Void</span> <span class="nf">doInBackground</span><span class="p">(</span><span class="n">Void</span><span class="p">...</span> <span class="n">params</span><span class="p">)</span> <span class="p">{</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>            <span class="k">try</span><span class="p">{</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>                <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="mi">100</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>                    <span class="n">Thread</span><span class="p">.</span><span class="na">sleep</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>                    <span class="n">publishProgress</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">);}}</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>            <span class="k">catch</span> <span class="p">(</span><span class="n">Exception</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span><span class="n">e</span><span class="p">.</span><span class="na">printStackTrace</span><span class="p">();}</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>            <span class="k">return</span> <span class="kc">null</span><span class="p">;</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>        <span class="p">}</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="n">myTask</span> <span class="o">=</span> <span class="k">new</span> <span class="n">MyTask</span><span class="p">();</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="n">myTask</span><span class="p">.</span><span class="na">executeOnExecutor</span><span class="p">(</span><span class="n">Executors</span><span class="p">.</span><span class="na">newFixedThreadPool</span><span class="p">(</span><span class="mi">1</span><span class="p">));</span>
+</code></pre></div>
 <h3 id="threadpool">代码讲解（ThreadPool）</h3>
 <p>使用线程池进行通信。
 在主线程中创建Handler对象，并重写handleMessage() 方法。
 子线程运行时，创建Message 对象，通过Handler发送消息。
 Looper 从 MessageQueue 中取出待处理消息。
 最后分发回Handler的handleMessage()方法中。</p>
-<pre><code class="language-java">//使用线程池并调用CallableThread函数
-ExecutorService threadPool = Executors.newSingleThreadExecutor();
-future = threadPool.submit(new CallableThread());
-//使用Handler来解决多线程间并发的问题
-public class CallableThread implements Callable&lt;Integer&gt; {
-        @Override
-        public Integer call() {
-            ······
-            handler.sendMessage(msg);
-        }
-    }
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">//使用线程池并调用CallableThread函数</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">ExecutorService</span> <span class="n">threadPool</span> <span class="o">=</span> <span class="n">Executors</span><span class="p">.</span><span class="na">newSingleThreadExecutor</span><span class="p">();</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="n">future</span> <span class="o">=</span> <span class="n">threadPool</span><span class="p">.</span><span class="na">submit</span><span class="p">(</span><span class="k">new</span> <span class="n">CallableThread</span><span class="p">());</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="c1">//使用Handler来解决多线程间并发的问题</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="kd">public</span> <span class="kd">class</span> <span class="nc">CallableThread</span> <span class="kd">implements</span> <span class="n">Callable</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="p">{</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>        <span class="nd">@Override</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>        <span class="kd">public</span> <span class="n">Integer</span> <span class="nf">call</span><span class="p">()</span> <span class="p">{</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>            <span class="err">······</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>            <span class="n">handler</span><span class="p">.</span><span class="na">sendMessage</span><span class="p">(</span><span class="n">msg</span><span class="p">);</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>        <span class="p">}</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>    <span class="p">}</span>
+</code></pre></div>
 <p>重写handleMessage()函数。</p>
-<pre><code class="language-java">@SuppressLint(&quot;HandlerLeak&quot;)
-private Handler handler = new Handler(){
-    @Override
-    public void handleMessage(Message msg) {
-        switch (msg.what){
-            case 1:
-                bar1.setProgress(msg.arg1,true);
-                break;
-            case 3:
-                bar3.setProgress(msg.arg1,true);
-                break;
-            default:
-                break;
-        }
-    }
-};
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nd">@SuppressLint</span><span class="p">(</span><span class="s">&quot;HandlerLeak&quot;</span><span class="p">)</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="kd">private</span> <span class="n">Handler</span> <span class="n">handler</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Handler</span><span class="p">(){</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>    <span class="nd">@Override</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">handleMessage</span><span class="p">(</span><span class="n">Message</span> <span class="n">msg</span><span class="p">)</span> <span class="p">{</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>        <span class="k">switch</span> <span class="p">(</span><span class="n">msg</span><span class="p">.</span><span class="na">what</span><span class="p">){</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>            <span class="k">case</span> <span class="mi">1</span><span class="p">:</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>                <span class="n">bar1</span><span class="p">.</span><span class="na">setProgress</span><span class="p">(</span><span class="n">msg</span><span class="p">.</span><span class="na">arg1</span><span class="p">,</span><span class="kc">true</span><span class="p">);</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>                <span class="k">break</span><span class="p">;</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>            <span class="k">case</span> <span class="mi">3</span><span class="p">:</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>                <span class="n">bar3</span><span class="p">.</span><span class="na">setProgress</span><span class="p">(</span><span class="n">msg</span><span class="p">.</span><span class="na">arg1</span><span class="p">,</span><span class="kc">true</span><span class="p">);</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>                <span class="k">break</span><span class="p">;</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>            <span class="k">default</span><span class="p">:</span>
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>                <span class="k">break</span><span class="p">;</span>
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>        <span class="p">}</span>
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>    <span class="p">}</span>
+<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="p">};</span>
+</code></pre></div>
 <h2 id="_4">作业说明</h2>
 <p>本次作业将使用多线程模拟生产者消费者场景。</p>
 <p>在此场景中，生产者每隔一段固定的时间生产出n件商品，商店商品的数量具有最大值max。</p>

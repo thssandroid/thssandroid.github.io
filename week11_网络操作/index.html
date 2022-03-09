@@ -659,39 +659,39 @@
 <p>创建新的socket类作为client</p>
 <p>连接访问本地地址127.0.0.1和端口6666</p>
 <p>创建输入流</p>
-<pre><code class="language-java">Socket client = new Socket();
-SocketAddress address = new InetSocketAddress(&quot;127.0.0.1&quot;, 6666);
-client.connect(address);
-InputStream is = client.getInputStream();
-byte[] bytes = new byte[1024];
-</code></pre>
-<p>一直对输入的字符串进行获取并打印输出，调runOnUiThread进行输出内容的持续动态添加。</p>
-<pre><code class="language-java">while(clientFlag){
-    int n = is.read(bytes);
-    if(n&gt;0){
-        final String text = new String(bytes,0,n);
-        System.out.println(text);
-        runOnUiThread(new Runnable() {
-            @Override
-            public void run() {textView.append(text);}
-        });
-    }
-}client.close();
-</code></pre>
-<p>创建Server端的socket并进行字符串的输出。</p>
-<pre><code class="language-java">ServerSocket serverSocket = new ServerSocket(6666);
-Socket server = serverSocket.accept();
-OutputStream os = server.getOutputStream();
-while (serverFlag) {
-    if (flag) {
-        flag = false;
-        String text = editText.getText().toString();
-        os.write(text.getBytes());
-    }
-}
-server.close();
-serverSocket.close();
-</code></pre>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">Socket</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Socket</span><span class="p">();</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">SocketAddress</span> <span class="n">address</span> <span class="o">=</span> <span class="k">new</span> <span class="n">InetSocketAddress</span><span class="p">(</span><span class="s">&quot;127.0.0.1&quot;</span><span class="p">,</span> <span class="mi">6666</span><span class="p">);</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="n">client</span><span class="p">.</span><span class="na">connect</span><span class="p">(</span><span class="n">address</span><span class="p">);</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="n">InputStream</span> <span class="n">is</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="na">getInputStream</span><span class="p">();</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="kt">byte</span><span class="o">[]</span> <span class="n">bytes</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">byte</span><span class="o">[</span><span class="mi">1024</span><span class="o">]</span><span class="p">;</span>
+</code></pre></div>
+一直对输入的字符串进行获取并打印输出，调runOnUiThread进行输出内容的持续动态添加。
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">while</span><span class="p">(</span><span class="n">clientFlag</span><span class="p">){</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>    <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">is</span><span class="p">.</span><span class="na">read</span><span class="p">(</span><span class="n">bytes</span><span class="p">);</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>    <span class="k">if</span><span class="p">(</span><span class="n">n</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">){</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>        <span class="kd">final</span> <span class="n">String</span> <span class="n">text</span> <span class="o">=</span> <span class="k">new</span> <span class="n">String</span><span class="p">(</span><span class="n">bytes</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">n</span><span class="p">);</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">text</span><span class="p">);</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>        <span class="n">runOnUiThread</span><span class="p">(</span><span class="k">new</span> <span class="n">Runnable</span><span class="p">()</span> <span class="p">{</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>            <span class="nd">@Override</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>            <span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="p">()</span> <span class="p">{</span><span class="n">textView</span><span class="p">.</span><span class="na">append</span><span class="p">(</span><span class="n">text</span><span class="p">);}</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>        <span class="p">});</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>    <span class="p">}</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="p">}</span><span class="n">client</span><span class="p">.</span><span class="na">close</span><span class="p">();</span>
+</code></pre></div></p>
+<p>创建Server端的socket并进行字符串的输出。
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">ServerSocket</span> <span class="n">serverSocket</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ServerSocket</span><span class="p">(</span><span class="mi">6666</span><span class="p">);</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">Socket</span> <span class="n">server</span> <span class="o">=</span> <span class="n">serverSocket</span><span class="p">.</span><span class="na">accept</span><span class="p">();</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="n">OutputStream</span> <span class="n">os</span> <span class="o">=</span> <span class="n">server</span><span class="p">.</span><span class="na">getOutputStream</span><span class="p">();</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="k">while</span> <span class="p">(</span><span class="n">serverFlag</span><span class="p">)</span> <span class="p">{</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>    <span class="k">if</span> <span class="p">(</span><span class="n">flag</span><span class="p">)</span> <span class="p">{</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>        <span class="n">flag</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>        <span class="n">String</span> <span class="n">text</span> <span class="o">=</span> <span class="n">editText</span><span class="p">.</span><span class="na">getText</span><span class="p">().</span><span class="na">toString</span><span class="p">();</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>        <span class="n">os</span><span class="p">.</span><span class="na">write</span><span class="p">(</span><span class="n">text</span><span class="p">.</span><span class="na">getBytes</span><span class="p">());</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>    <span class="p">}</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="p">}</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="n">server</span><span class="p">.</span><span class="na">close</span><span class="p">();</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="n">serverSocket</span><span class="p">.</span><span class="na">close</span><span class="p">();</span>
+</code></pre></div></p>
 <h2 id="network">案例分析（network）</h2>
 <p><a href="https://cloud.tsinghua.edu.cn/f/b27bc6343f0a474688a1/?dl=1">案例程序下载</a></p>
 <h3 id="_4">功能介绍</h3>
@@ -702,66 +702,66 @@ serverSocket.close();
 <img src="..\img\project10img2.png" width = "40%">
 </center></p>
 <h3 id="_5">代码讲解</h3>
-<p>新建HttpsURLConnection连接并进行输入输出和缓存设置</p>
-<pre><code class="language-java">HttpsURLConnection conn = (HttpsURLConnection) url.openConnection();
-conn.setDoOutput(true);
-conn.setDoInput(true);
-conn.setUseCaches(false);
-</code></pre>
-<p>设置请求方式（GET/POST）和内容格式</p>
-<pre><code class="language-java">conn.setRequestMethod(&quot;POST&quot;);
-conn.setRequestProperty(&quot;Charset&quot;, &quot;UTF-8&quot;);
-conn.setRequestProperty(&quot;content-type&quot;, &quot;application/json&quot;);
-</code></pre>
-<p>向输出流写数据</p>
-<pre><code class="language-java">OutputStream outputStream = conn.getOutputStream();
-outputStream.write(outputStr.getBytes());
-outputStream.close();
-</code></pre>
-<p>从输入流读取网络返回的内容</p>
-<pre><code class="language-java">InputStream inputStream;
-if (conn.getResponseCode() == 200) {
-    inputStream = conn.getInputStream(); 
-} else {
-    inputStream = conn.getErrorStream(); 
-}
-</code></pre>
-<p>使用InputStreamReader 类的buffer获取读取的字符串。</p>
-<pre><code class="language-java">InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
-BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
-StringBuilder buffer = new StringBuilder();
-String str;
-while ((str = bufferedReader.readLine()) != null) {buffer.append(str);}
-</code></pre>
-<p>释放所有相关资源。</p>
-<pre><code class="language-java">bufferedReader.close();
-inputStreamReader.close();
-inputStream.close();
-conn.disconnect();
-</code></pre>
-<p>创建OkHttp 的client并将数据类型按json格式解析。
-使用Request类进行请求的创建。</p>
-<pre><code class="language-java">OkHttpClient client = new OkHttpClient();
-MediaType JSON = MediaType.parse(&quot;application/json; charset=utf-8&quot;);
-@SuppressWarnings(&quot;deprecation&quot;) RequestBody body = RequestBody.create(JSON, jsonStr);
-Request request = new Request.Builder()
-        .url(requestUrl)
-        .post(body)
-        .build();
-</code></pre>
+<p>新建HttpsURLConnection连接并进行输入输出和缓存设置
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">HttpsURLConnection</span> <span class="n">conn</span> <span class="o">=</span> <span class="p">(</span><span class="n">HttpsURLConnection</span><span class="p">)</span> <span class="n">url</span><span class="p">.</span><span class="na">openConnection</span><span class="p">();</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="n">conn</span><span class="p">.</span><span class="na">setDoOutput</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="n">conn</span><span class="p">.</span><span class="na">setDoInput</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="n">conn</span><span class="p">.</span><span class="na">setUseCaches</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span>
+</code></pre></div>
+设置请求方式（GET/POST）和内容格式
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">conn</span><span class="p">.</span><span class="na">setRequestMethod</span><span class="p">(</span><span class="s">&quot;POST&quot;</span><span class="p">);</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="n">conn</span><span class="p">.</span><span class="na">setRequestProperty</span><span class="p">(</span><span class="s">&quot;Charset&quot;</span><span class="p">,</span> <span class="s">&quot;UTF-8&quot;</span><span class="p">);</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="n">conn</span><span class="p">.</span><span class="na">setRequestProperty</span><span class="p">(</span><span class="s">&quot;content-type&quot;</span><span class="p">,</span> <span class="s">&quot;application/json&quot;</span><span class="p">);</span>
+</code></pre></div>
+向输出流写数据
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">OutputStream</span> <span class="n">outputStream</span> <span class="o">=</span> <span class="n">conn</span><span class="p">.</span><span class="na">getOutputStream</span><span class="p">();</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="n">outputStream</span><span class="p">.</span><span class="na">write</span><span class="p">(</span><span class="n">outputStr</span><span class="p">.</span><span class="na">getBytes</span><span class="p">());</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="n">outputStream</span><span class="p">.</span><span class="na">close</span><span class="p">();</span>
+</code></pre></div>
+从输入流读取网络返回的内容
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">InputStream</span> <span class="n">inputStream</span><span class="p">;</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="k">if</span> <span class="p">(</span><span class="n">conn</span><span class="p">.</span><span class="na">getResponseCode</span><span class="p">()</span> <span class="o">==</span> <span class="mi">200</span><span class="p">)</span> <span class="p">{</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>    <span class="n">inputStream</span> <span class="o">=</span> <span class="n">conn</span><span class="p">.</span><span class="na">getInputStream</span><span class="p">();</span> 
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>    <span class="n">inputStream</span> <span class="o">=</span> <span class="n">conn</span><span class="p">.</span><span class="na">getErrorStream</span><span class="p">();</span> 
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="p">}</span>
+</code></pre></div>
+使用InputStreamReader 类的buffer获取读取的字符串。
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="n">InputStreamReader</span> <span class="n">inputStreamReader</span> <span class="o">=</span> <span class="k">new</span> <span class="n">InputStreamReader</span><span class="p">(</span><span class="n">inputStream</span><span class="p">);</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="n">BufferedReader</span> <span class="n">bufferedReader</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BufferedReader</span><span class="p">(</span><span class="n">inputStreamReader</span><span class="p">);</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="n">StringBuilder</span> <span class="n">buffer</span> <span class="o">=</span> <span class="k">new</span> <span class="n">StringBuilder</span><span class="p">();</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="n">String</span> <span class="n">str</span><span class="p">;</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="k">while</span> <span class="p">((</span><span class="n">str</span> <span class="o">=</span> <span class="n">bufferedReader</span><span class="p">.</span><span class="na">readLine</span><span class="p">())</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span><span class="n">buffer</span><span class="p">.</span><span class="na">append</span><span class="p">(</span><span class="n">str</span><span class="p">);}</span>
+</code></pre></div>
+释放所有相关资源。
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="n">bufferedReader</span><span class="p">.</span><span class="na">close</span><span class="p">();</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="n">inputStreamReader</span><span class="p">.</span><span class="na">close</span><span class="p">();</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="n">inputStream</span><span class="p">.</span><span class="na">close</span><span class="p">();</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="n">conn</span><span class="p">.</span><span class="na">disconnect</span><span class="p">();</span>
+</code></pre></div>
+创建OkHttp 的client并将数据类型按json格式解析。
+使用Request类进行请求的创建。
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="n">OkHttpClient</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="n">OkHttpClient</span><span class="p">();</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="n">MediaType</span> <span class="n">JSON</span> <span class="o">=</span> <span class="n">MediaType</span><span class="p">.</span><span class="na">parse</span><span class="p">(</span><span class="s">&quot;application/json; charset=utf-8&quot;</span><span class="p">);</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="nd">@SuppressWarnings</span><span class="p">(</span><span class="s">&quot;deprecation&quot;</span><span class="p">)</span> <span class="n">RequestBody</span> <span class="n">body</span> <span class="o">=</span> <span class="n">RequestBody</span><span class="p">.</span><span class="na">create</span><span class="p">(</span><span class="n">JSON</span><span class="p">,</span> <span class="n">jsonStr</span><span class="p">);</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="n">Request</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Request</span><span class="p">.</span><span class="na">Builder</span><span class="p">()</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>        <span class="p">.</span><span class="na">url</span><span class="p">(</span><span class="n">requestUrl</span><span class="p">)</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>        <span class="p">.</span><span class="na">post</span><span class="p">(</span><span class="n">body</span><span class="p">)</span>
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>        <span class="p">.</span><span class="na">build</span><span class="p">();</span>
+</code></pre></div></p>
 <p>Client进行队列请求并获取返回值，
-根据不同返回值进行成功响应或失败的相关操作。</p>
-<pre><code class="language-java">client.newCall(request).enqueue(new Callback() {
-    @Override
-    public void onFailure(@NotNull Call call, @NotNull IOException e) {}
-    @Override
-    public void onResponse(@NotNull Call call, @NotNull final Response response) throws IOException {
-        Message msg = new Message();
-        msg.obj = Objects.requireNonNull(response.body()).string();
-        handler.sendMessage(msg);
-    }
-});
-</code></pre>
+根据不同返回值进行成功响应或失败的相关操作。
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="n">client</span><span class="p">.</span><span class="na">newCall</span><span class="p">(</span><span class="n">request</span><span class="p">).</span><span class="na">enqueue</span><span class="p">(</span><span class="k">new</span> <span class="n">Callback</span><span class="p">()</span> <span class="p">{</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>    <span class="nd">@Override</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onFailure</span><span class="p">(</span><span class="nd">@NotNull</span> <span class="n">Call</span> <span class="n">call</span><span class="p">,</span> <span class="nd">@NotNull</span> <span class="n">IOException</span> <span class="n">e</span><span class="p">)</span> <span class="p">{}</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>    <span class="nd">@Override</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onResponse</span><span class="p">(</span><span class="nd">@NotNull</span> <span class="n">Call</span> <span class="n">call</span><span class="p">,</span> <span class="nd">@NotNull</span> <span class="kd">final</span> <span class="n">Response</span> <span class="n">response</span><span class="p">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="p">{</span>
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>        <span class="n">Message</span> <span class="n">msg</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Message</span><span class="p">();</span>
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>        <span class="n">msg</span><span class="p">.</span><span class="na">obj</span> <span class="o">=</span> <span class="n">Objects</span><span class="p">.</span><span class="na">requireNonNull</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="na">body</span><span class="p">()).</span><span class="na">string</span><span class="p">();</span>
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>        <span class="n">handler</span><span class="p">.</span><span class="na">sendMessage</span><span class="p">(</span><span class="n">msg</span><span class="p">);</span>
+<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>    <span class="p">}</span>
+<a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a><span class="p">});</span>
+</code></pre></div></p>
 <h2 id="_6">作业说明</h2>
 <h3 id="_7">作业要求</h3>
 <p>本次作业的主要任务是实现校园论坛的注册和登陆功能。</p>

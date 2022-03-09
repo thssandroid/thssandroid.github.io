@@ -600,52 +600,52 @@
 <img src="..\img\project3img1.png" width = "40%"> <img src="..\img\project3img2.png" width = "40%">
 </center></p>
 <h3 id="_4">代码讲解</h3>
-<p>从视图创建tab布局的实例。</p>
-<pre><code class="language-java">TabLayout tabLayout = findViewById(R.id.tab_layout);
-</code></pre>
-<p>设置每个tab的文本。</p>
-<pre><code class="language-java">tabLayout.addTab(tabLayout.newTab().setText(R.string.tab_label1));
-tabLayout.addTab(tabLayout.newTab().setText(R.string.tab_label2));
-tabLayout.addTab(tabLayout.newTab().setText(R.string.tab_label3));
-</code></pre>
-<p>设置tab以填充整个布局。</p>
-<pre><code class="language-java">tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
-</code></pre>
-<p>使用PagerAdapter来管理Fragment中的页面视图。</p>
-<pre><code class="language-java">final ViewPager viewPager = findViewById(R.id.pager);
-final PagerAdapter adapter = new PagerAdapter
-    (getSupportFragmentManager(), tabLayout.getTabCount());
-</code></pre>
-<p>设置listener用于点击事件。</p>
-<pre><code class="language-java">viewPager.setAdapter(adapter);
-viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
-tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
-    @Override
-    public void onTabSelected(TabLayout.Tab tab) {
-        viewPager.setCurrentItem(tab.getPosition());
-}
-</code></pre>
-<p>重写PagerAdapter并进行tab的切换。</p>
-<pre><code class="language-java">@Override
-public Fragment getItem(int position) {
-    switch (position) {
-        case 0: return new TabFragment1();
-        case 1: return new TabFragment2();
-        case 2: return new TabFragment3();
-        default: return null;
-    }
-}
-</code></pre>
-<p>为当前的fragment进行布局的inflate。</p>
-<pre><code class="language-java">public class TabFragment1 extends Fragment {
-    public TabFragment1() {//必需的空公共构造函数}
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.tab_fragment1, container, false);
-    }
-}
-</code></pre>
+<p>从视图创建tab布局的实例。
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">TabLayout</span> <span class="n">tabLayout</span> <span class="o">=</span> <span class="n">findViewById</span><span class="p">(</span><span class="n">R</span><span class="p">.</span><span class="na">id</span><span class="p">.</span><span class="na">tab_layout</span><span class="p">);</span>
+</code></pre></div>
+设置每个tab的文本。
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">tabLayout</span><span class="p">.</span><span class="na">addTab</span><span class="p">(</span><span class="n">tabLayout</span><span class="p">.</span><span class="na">newTab</span><span class="p">().</span><span class="na">setText</span><span class="p">(</span><span class="n">R</span><span class="p">.</span><span class="na">string</span><span class="p">.</span><span class="na">tab_label1</span><span class="p">));</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">tabLayout</span><span class="p">.</span><span class="na">addTab</span><span class="p">(</span><span class="n">tabLayout</span><span class="p">.</span><span class="na">newTab</span><span class="p">().</span><span class="na">setText</span><span class="p">(</span><span class="n">R</span><span class="p">.</span><span class="na">string</span><span class="p">.</span><span class="na">tab_label2</span><span class="p">));</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="n">tabLayout</span><span class="p">.</span><span class="na">addTab</span><span class="p">(</span><span class="n">tabLayout</span><span class="p">.</span><span class="na">newTab</span><span class="p">().</span><span class="na">setText</span><span class="p">(</span><span class="n">R</span><span class="p">.</span><span class="na">string</span><span class="p">.</span><span class="na">tab_label3</span><span class="p">));</span>
+</code></pre></div>
+设置tab以填充整个布局。
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">tabLayout</span><span class="p">.</span><span class="na">setTabGravity</span><span class="p">(</span><span class="n">TabLayout</span><span class="p">.</span><span class="na">GRAVITY_FILL</span><span class="p">);</span>
+</code></pre></div>
+使用PagerAdapter来管理Fragment中的页面视图。
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kd">final</span> <span class="n">ViewPager</span> <span class="n">viewPager</span> <span class="o">=</span> <span class="n">findViewById</span><span class="p">(</span><span class="n">R</span><span class="p">.</span><span class="na">id</span><span class="p">.</span><span class="na">pager</span><span class="p">);</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="kd">final</span> <span class="n">PagerAdapter</span> <span class="n">adapter</span> <span class="o">=</span> <span class="k">new</span> <span class="n">PagerAdapter</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>    <span class="p">(</span><span class="n">getSupportFragmentManager</span><span class="p">(),</span> <span class="n">tabLayout</span><span class="p">.</span><span class="na">getTabCount</span><span class="p">());</span>
+</code></pre></div>
+设置listener用于点击事件。
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">viewPager</span><span class="p">.</span><span class="na">setAdapter</span><span class="p">(</span><span class="n">adapter</span><span class="p">);</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="n">viewPager</span><span class="p">.</span><span class="na">addOnPageChangeListener</span><span class="p">(</span><span class="k">new</span> <span class="n">TabLayout</span><span class="p">.</span><span class="na">TabLayoutOnPageChangeListener</span><span class="p">(</span><span class="n">tabLayout</span><span class="p">));</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="n">tabLayout</span><span class="p">.</span><span class="na">addOnTabSelectedListener</span><span class="p">(</span><span class="k">new</span> <span class="n">TabLayout</span><span class="p">.</span><span class="na">OnTabSelectedListener</span><span class="p">()</span> <span class="p">{</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>    <span class="nd">@Override</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onTabSelected</span><span class="p">(</span><span class="n">TabLayout</span><span class="p">.</span><span class="na">Tab</span> <span class="n">tab</span><span class="p">)</span> <span class="p">{</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>        <span class="n">viewPager</span><span class="p">.</span><span class="na">setCurrentItem</span><span class="p">(</span><span class="n">tab</span><span class="p">.</span><span class="na">getPosition</span><span class="p">());</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="p">}</span>
+</code></pre></div>
+重写PagerAdapter并进行tab的切换。
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nd">@Override</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="kd">public</span> <span class="n">Fragment</span> <span class="nf">getItem</span><span class="p">(</span><span class="kt">int</span> <span class="n">position</span><span class="p">)</span> <span class="p">{</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>    <span class="k">switch</span> <span class="p">(</span><span class="n">position</span><span class="p">)</span> <span class="p">{</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>        <span class="k">case</span> <span class="mi">0</span><span class="p">:</span> <span class="k">return</span> <span class="k">new</span> <span class="n">TabFragment1</span><span class="p">();</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>        <span class="k">case</span> <span class="mi">1</span><span class="p">:</span> <span class="k">return</span> <span class="k">new</span> <span class="n">TabFragment2</span><span class="p">();</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>        <span class="k">case</span> <span class="mi">2</span><span class="p">:</span> <span class="k">return</span> <span class="k">new</span> <span class="n">TabFragment3</span><span class="p">();</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>        <span class="k">default</span><span class="p">:</span> <span class="k">return</span> <span class="kc">null</span><span class="p">;</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>    <span class="p">}</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="p">}</span>
+</code></pre></div>
+为当前的fragment进行布局的inflate。
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kd">public</span> <span class="kd">class</span> <span class="nc">TabFragment1</span> <span class="kd">extends</span> <span class="n">Fragment</span> <span class="p">{</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>    <span class="kd">public</span> <span class="nf">TabFragment1</span><span class="p">()</span> <span class="p">{</span><span class="c1">//必需的空公共构造函数}</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>    <span class="nd">@Override</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>    <span class="kd">public</span> <span class="n">View</span> <span class="nf">onCreateView</span><span class="p">(</span><span class="n">LayoutInflater</span> <span class="n">inflater</span><span class="p">,</span> <span class="n">ViewGroup</span> <span class="n">container</span><span class="p">,</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>                             <span class="n">Bundle</span> <span class="n">savedInstanceState</span><span class="p">)</span> <span class="p">{</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>        <span class="k">return</span> <span class="n">inflater</span><span class="p">.</span><span class="na">inflate</span><span class="p">(</span><span class="n">R</span><span class="p">.</span><span class="na">layout</span><span class="p">.</span><span class="na">tab_fragment1</span><span class="p">,</span> <span class="n">container</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>    <span class="p">}</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="p">}</span>
+</code></pre></div></p>
 <h2 id="_5">作业说明</h2>
 <h3 id="_6">作业要求</h3>
 <p>校园论坛中有四个主要页面，分别为动态浏览页面、动态发布页面、动态搜索页面和个人信息设置页面。其中动态页面中分为全部动态和已关注的人的动态两类。</p>

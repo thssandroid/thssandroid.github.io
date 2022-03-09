@@ -601,55 +601,55 @@
 <img src="..\img\project4img1.png" width = "40%"> <img src="..\img\project4img2.png" width = "40%">
 </center></p>
 <h3 id="_4">代码讲解</h3>
-<p>创建recycler view，创建adapter并提供展示数据，连接adapter与recycler view，将recycler view设置为默认线性布局。</p>
-<pre><code class="language-java">mRecyclerView = findViewById(R.id.recyclerview);
-mAdapter = new WordListAdapter(this, mWordList);
-mRecyclerView.setAdapter(mAdapter);
-mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-</code></pre>
-<p>在wordlist里面添加新单词，提醒adapter数据已经改变并将视角滚动到最底层。</p>
-<pre><code class="language-java">public void onClick(View view) {
-    int wordListSize = mWordList.size();
-    mWordList.addLast(&quot;+ Word &quot; + wordListSize);
-    mRecyclerView.getAdapter().notifyItemInserted(wordListSize);
-    mRecyclerView.smoothScrollToPosition(wordListSize);
-}
-</code></pre>
-<p>获取点击位置，确定点击的单词，修改单词内容并通知adapter状态改变使得RecyclerView能够及时展示数据。</p>
-<pre><code class="language-java">int mPosition = getLayoutPosition();
-String element = mWordList.get(mPosition);
-mWordList.set(mPosition, &quot;Clicked! &quot; + element);
-mAdapter.notifyDataSetChanged();
-</code></pre>
-<p>创建一个新的自定义视图holder来展示RecyclerView。
+<p>创建recycler view，创建adapter并提供展示数据，连接adapter与recycler view，将recycler view设置为默认线性布局。
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">mRecyclerView</span> <span class="o">=</span> <span class="n">findViewById</span><span class="p">(</span><span class="n">R</span><span class="p">.</span><span class="na">id</span><span class="p">.</span><span class="na">recyclerview</span><span class="p">);</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">mAdapter</span> <span class="o">=</span> <span class="k">new</span> <span class="n">WordListAdapter</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="n">mWordList</span><span class="p">);</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="n">mRecyclerView</span><span class="p">.</span><span class="na">setAdapter</span><span class="p">(</span><span class="n">mAdapter</span><span class="p">);</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="n">mRecyclerView</span><span class="p">.</span><span class="na">setLayoutManager</span><span class="p">(</span><span class="k">new</span> <span class="n">LinearLayoutManager</span><span class="p">(</span><span class="k">this</span><span class="p">));</span>
+</code></pre></div>
+在wordlist里面添加新单词，提醒adapter数据已经改变并将视角滚动到最底层。
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kd">public</span> <span class="kt">void</span> <span class="nf">onClick</span><span class="p">(</span><span class="n">View</span> <span class="n">view</span><span class="p">)</span> <span class="p">{</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>    <span class="kt">int</span> <span class="n">wordListSize</span> <span class="o">=</span> <span class="n">mWordList</span><span class="p">.</span><span class="na">size</span><span class="p">();</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>    <span class="n">mWordList</span><span class="p">.</span><span class="na">addLast</span><span class="p">(</span><span class="s">&quot;+ Word &quot;</span> <span class="o">+</span> <span class="n">wordListSize</span><span class="p">);</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>    <span class="n">mRecyclerView</span><span class="p">.</span><span class="na">getAdapter</span><span class="p">().</span><span class="na">notifyItemInserted</span><span class="p">(</span><span class="n">wordListSize</span><span class="p">);</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>    <span class="n">mRecyclerView</span><span class="p">.</span><span class="na">smoothScrollToPosition</span><span class="p">(</span><span class="n">wordListSize</span><span class="p">);</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="p">}</span>
+</code></pre></div>
+获取点击位置，确定点击的单词，修改单词内容并通知adapter状态改变使得RecyclerView能够及时展示数据。
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kt">int</span> <span class="n">mPosition</span> <span class="o">=</span> <span class="n">getLayoutPosition</span><span class="p">();</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">String</span> <span class="n">element</span> <span class="o">=</span> <span class="n">mWordList</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">mPosition</span><span class="p">);</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="n">mWordList</span><span class="p">.</span><span class="na">set</span><span class="p">(</span><span class="n">mPosition</span><span class="p">,</span> <span class="s">&quot;Clicked! &quot;</span> <span class="o">+</span> <span class="n">element</span><span class="p">);</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="n">mAdapter</span><span class="p">.</span><span class="na">notifyDataSetChanged</span><span class="p">();</span>
+</code></pre></div>
+创建一个新的自定义视图holder来展示RecyclerView。
 itemView是显示数据的视图。
-Adapter用来管理数据和视图</p>
-<pre><code class="language-java">public WordViewHolder(View itemView, WordListAdapter adapter) {
-    super(itemView);
-    wordItemView = itemView.findViewById(R.id.word);
-    this.mAdapter = adapter;
-    itemView.setOnClickListener(this);
-}
-</code></pre>
-<p>手动创建新的View或从XML布局文件中对其进行inflate 。
+Adapter用来管理数据和视图
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kd">public</span> <span class="nf">WordViewHolder</span><span class="p">(</span><span class="n">View</span> <span class="n">itemView</span><span class="p">,</span> <span class="n">WordListAdapter</span> <span class="n">adapter</span><span class="p">)</span> <span class="p">{</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>    <span class="kd">super</span><span class="p">(</span><span class="n">itemView</span><span class="p">);</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>    <span class="n">wordItemView</span> <span class="o">=</span> <span class="n">itemView</span><span class="p">.</span><span class="na">findViewById</span><span class="p">(</span><span class="n">R</span><span class="p">.</span><span class="na">id</span><span class="p">.</span><span class="na">word</span><span class="p">);</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>    <span class="k">this</span><span class="p">.</span><span class="na">mAdapter</span> <span class="o">=</span> <span class="n">adapter</span><span class="p">;</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>    <span class="n">itemView</span><span class="p">.</span><span class="na">setOnClickListener</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="p">}</span>
+</code></pre></div>
+手动创建新的View或从XML布局文件中对其进行inflate 。
 新的ViewHolder将通过onBindViewHolder显示adapter的元素。
-缓存对View的子视图的引用，避免不必要的调用。</p>
-<pre><code class="language-java">public WordListAdapter.WordViewHolder onCreateViewHolder
-    (ViewGroup parent,int viewType) {
-        View mItemView = mInflater.inflate(
-                R.layout.wordlist_item, parent, false);
-        return new WordViewHolder(mItemView, this);
-    }
-</code></pre>
-<p>由RecyclerView调用以在指定位置显示数据。
-此方法更新ViewHolder.itemView的内容，在给定位置设置内容。</p>
-<pre><code class="language-java">@Override
-public void onBindViewHolder
-(WordListAdapter.WordViewHolder holder,int position) {  
-    String mCurrent = mWordList.get(position);
-    holder.wordItemView.setText(mCurrent);
-}
-</code></pre>
+缓存对View的子视图的引用，避免不必要的调用。
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kd">public</span> <span class="n">WordListAdapter</span><span class="p">.</span><span class="na">WordViewHolder</span> <span class="nf">onCreateViewHolder</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>    <span class="p">(</span><span class="n">ViewGroup</span> <span class="n">parent</span><span class="p">,</span><span class="kt">int</span> <span class="n">viewType</span><span class="p">)</span> <span class="p">{</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>        <span class="n">View</span> <span class="n">mItemView</span> <span class="o">=</span> <span class="n">mInflater</span><span class="p">.</span><span class="na">inflate</span><span class="p">(</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>                <span class="n">R</span><span class="p">.</span><span class="na">layout</span><span class="p">.</span><span class="na">wordlist_item</span><span class="p">,</span> <span class="n">parent</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>        <span class="k">return</span> <span class="k">new</span> <span class="n">WordViewHolder</span><span class="p">(</span><span class="n">mItemView</span><span class="p">,</span> <span class="k">this</span><span class="p">);</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>    <span class="p">}</span>
+</code></pre></div>
+由RecyclerView调用以在指定位置显示数据。
+此方法更新ViewHolder.itemView的内容，在给定位置设置内容。
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nd">@Override</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="kd">public</span> <span class="kt">void</span> <span class="nf">onBindViewHolder</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="p">(</span><span class="n">WordListAdapter</span><span class="p">.</span><span class="na">WordViewHolder</span> <span class="n">holder</span><span class="p">,</span><span class="kt">int</span> <span class="n">position</span><span class="p">)</span> <span class="p">{</span>  
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>    <span class="n">String</span> <span class="n">mCurrent</span> <span class="o">=</span> <span class="n">mWordList</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">position</span><span class="p">);</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>    <span class="n">holder</span><span class="p">.</span><span class="na">wordItemView</span><span class="p">.</span><span class="na">setText</span><span class="p">(</span><span class="n">mCurrent</span><span class="p">);</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="p">}</span>
+</code></pre></div></p>
 <h2 id="_5">作业说明</h2>
 <h3 id="_6">作业要求</h3>
 <p>本次作业的主要任务是通过RecyclerView在动态页面滚动显示多条动态，并实现动态发布功能（动态只要求实现文字版）。</p>

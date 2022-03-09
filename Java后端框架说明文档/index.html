@@ -1182,57 +1182,57 @@
 <p>​       为了加深同学们的理解，下面将介绍一次业务——<strong>用户登录</strong>在框架中的详细执行过程，在运行框架前，请同学们先配置好<strong>Redis</strong>和<strong>Mongodb</strong>数据库，具体配置过程请查看<strong>第四章</strong>，不然可能会报错。在服务器启动以后，在浏览器中输入http://localhost:8080/user/login?username=test&amp;password=test，后端会处理相关请求，具体处理流程如下。</p>
 <h4 id="231">2.3.1 入口</h4>
 <p>​       前面提到过，<strong>Entrance</strong>模块中管理了所有的入口，意味着业务在执行前都会进入此包中。其中<strong>Controller</strong>管理了所有的<strong>Http</strong>入口，意味着所有的<strong>Http</strong>请求都会进入此包中，查看此包中<strong>UserController</strong>类的代码，如下：</p>
-<pre><code class="language-java">/**
- * @描述 用户控制器，处理外部传入的操作用户业务的http请求
- **/
-@RestController
-@RequestMapping(&quot;/user&quot;)
-public class UserController {
-    @Autowired
-    Dispatcher dispatcher;
-
-    /** 用户登录http接口 */
-    @RequestMapping(value=&quot;/login&quot;)
-    public Mono&lt;String&gt; login(LoginInParams inParams) {
-        inParams.setBizTypeStr(UserBizEnum.USER_LOG_IN.toString());
-        return Mono.just(dispatcher.dispatch(inParams));
-    }
-
-    /** 用户退出登录http接口 */
-    @GetMapping(value=&quot;/logout&quot;) /** 使用注解可以限制请求的方式，此注解限制只能通过 get 方式请求 */
-    public Mono&lt;String&gt; logout(CommonInParams inParams) {
-        inParams.setBizTypeStr(UserBizEnum.USER_LOG_OUT.toString());
-        return Mono.just(dispatcher.dispatch(inParams));
-    }
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="cm">/**</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="cm"> * @描述 用户控制器，处理外部传入的操作用户业务的http请求</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="cm"> **/</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nd">@RestController</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nd">@RequestMapping</span><span class="p">(</span><span class="s">&quot;/user&quot;</span><span class="p">)</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="kd">public</span> <span class="kd">class</span> <span class="nc">UserController</span> <span class="p">{</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>    <span class="nd">@Autowired</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>    <span class="n">Dispatcher</span> <span class="n">dispatcher</span><span class="p">;</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>    <span class="cm">/** 用户登录http接口 */</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>    <span class="nd">@RequestMapping</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="s">&quot;/login&quot;</span><span class="p">)</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>    <span class="kd">public</span> <span class="n">Mono</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="nf">login</span><span class="p">(</span><span class="n">LoginInParams</span> <span class="n">inParams</span><span class="p">)</span> <span class="p">{</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>        <span class="n">inParams</span><span class="p">.</span><span class="na">setBizTypeStr</span><span class="p">(</span><span class="n">UserBizEnum</span><span class="p">.</span><span class="na">USER_LOG_IN</span><span class="p">.</span><span class="na">toString</span><span class="p">());</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>        <span class="k">return</span> <span class="n">Mono</span><span class="p">.</span><span class="na">just</span><span class="p">(</span><span class="n">dispatcher</span><span class="p">.</span><span class="na">dispatch</span><span class="p">(</span><span class="n">inParams</span><span class="p">));</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>    <span class="p">}</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>    <span class="cm">/** 用户退出登录http接口 */</span>
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>    <span class="nd">@GetMapping</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="s">&quot;/logout&quot;</span><span class="p">)</span> <span class="cm">/** 使用注解可以限制请求的方式，此注解限制只能通过 get 方式请求 */</span>
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>    <span class="kd">public</span> <span class="n">Mono</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="nf">logout</span><span class="p">(</span><span class="n">CommonInParams</span> <span class="n">inParams</span><span class="p">)</span> <span class="p">{</span>
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>        <span class="n">inParams</span><span class="p">.</span><span class="na">setBizTypeStr</span><span class="p">(</span><span class="n">UserBizEnum</span><span class="p">.</span><span class="na">USER_LOG_OUT</span><span class="p">.</span><span class="na">toString</span><span class="p">());</span>
+<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>        <span class="k">return</span> <span class="n">Mono</span><span class="p">.</span><span class="na">just</span><span class="p">(</span><span class="n">dispatcher</span><span class="p">.</span><span class="na">dispatch</span><span class="p">(</span><span class="n">inParams</span><span class="p">));</span>
+<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>    <span class="p">}</span>
+<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a><span class="p">}</span>
+</code></pre></div>
 <p>​       可以看到此类有两个注解，第一个注解<strong>RestController</strong>是告诉<strong>SpringBoot</strong>我这一个类用于处理<strong>Http</strong>请求的，第二个注解<strong>RequetMapping</strong>是告诉<strong>SpringBoot</strong>我这一个类处理的<strong>http</strong>请求路径是<strong>/user</strong>。那么访问<strong>/user/login</strong>，将会跳转到此类中的带<strong>RequetMapping(value="/login")</strong>注解的函数中，即<strong>login</strong>函数。可以看到此函数的入参为一个类<strong>LoginInParams</strong>，此类为业务的入参类，具体路径为<strong>com.flying.dragon.Biz.Params.UserParams.in.LoginInParams</strong>，内部代码如下：</p>
-<pre><code class="language-java">@BizType(userBiz = UserBizEnum.USER_LOG_IN)
-public class LoginInParams extends CommonInParams {
-    // 登录用的密码
-    @Required
-    private String username;
-    // 登录用的密码
-    @Required
-    private String password;
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nd">@BizType</span><span class="p">(</span><span class="n">userBiz</span> <span class="o">=</span> <span class="n">UserBizEnum</span><span class="p">.</span><span class="na">USER_LOG_IN</span><span class="p">)</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="kd">public</span> <span class="kd">class</span> <span class="nc">LoginInParams</span> <span class="kd">extends</span> <span class="n">CommonInParams</span> <span class="p">{</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>    <span class="c1">// 登录用的密码</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>    <span class="nd">@Required</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>    <span class="kd">private</span> <span class="n">String</span> <span class="n">username</span><span class="p">;</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>    <span class="c1">// 登录用的密码</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>    <span class="nd">@Required</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>    <span class="kd">private</span> <span class="n">String</span> <span class="n">password</span><span class="p">;</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>    <span class="kd">public</span> <span class="n">String</span> <span class="nf">getUsername</span><span class="p">()</span> <span class="p">{</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>        <span class="k">return</span> <span class="n">username</span><span class="p">;</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>    <span class="p">}</span>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setUsername</span><span class="p">(</span><span class="n">String</span> <span class="n">username</span><span class="p">)</span> <span class="p">{</span>
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>        <span class="k">this</span><span class="p">.</span><span class="na">username</span> <span class="o">=</span> <span class="n">username</span><span class="p">;</span>
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>    <span class="p">}</span>
+<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>
+<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>    <span class="kd">public</span> <span class="n">String</span> <span class="nf">getPassword</span><span class="p">()</span> <span class="p">{</span>
+<a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a>        <span class="k">return</span> <span class="n">password</span><span class="p">;</span>
+<a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a>    <span class="p">}</span>
+<a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a>
+<a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a>    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setPassword</span><span class="p">(</span><span class="n">String</span> <span class="n">password</span><span class="p">)</span> <span class="p">{</span>
+<a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a>        <span class="k">this</span><span class="p">.</span><span class="na">password</span> <span class="o">=</span> <span class="n">password</span><span class="p">;</span>
+<a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a>    <span class="p">}</span>
+<a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a><span class="p">}</span>
+</code></pre></div>
 <p>​       可以看到此类中有两个属性username和password，<strong>SpringBoot</strong>会自动解析<strong>http</strong>请求中携带的所有参数（包括<strong>路径参数</strong>、<strong>表单参数</strong>等）并将其自动放入名称对应的属性值中。此类继承自<strong>CommonInParams</strong>类，该类中有一个必须设置的参数<strong>bizTypeStr</strong>，此参数会标识业务类型，保证业务被正常处理。在<strong>login</strong>函数中，我们将参数的业务类型设置为<strong>com.flying.dragon.Biz.BizType.UserBizEnum.USER_LOG_IN</strong>，表明这是用户登录业务。</p>
 <h4 id="232">2.3.2 派发业务</h4>
 <p>​       在<strong>login</strong>函数的最后一行，调用<strong>Dispatcher</strong>类的<strong>dispatch</strong>函数来派发业务。<strong>com.flying.dragon.Biz.Dispatcher</strong>的<strong>dispatch</strong>函数代码较长，在此不一一列举，只解析其中的关键部分：</p>
@@ -1305,14 +1305,14 @@ public class LoginInParams extends CommonInParams {
 <p>​       参考<a href="https://www.runoob.com/docker/docker-tutorial.html">Docker教程</a>安装docker并配置好环境变量。</p>
 <h3 id="42">4.2 导入镜像</h3>
 <p>​       助教已经将所有的环境依赖直接封装在一个docker镜像文件course.tar中，请访问<a href="https://cloud.tsinghua.edu.cn/f/f2f5d3eebeb54b1d87cf/">链接</a>下载镜像，同学们只需要运行如下命令导入该镜像即可：</p>
-<pre><code class="language-bash">docker import course.tar course:v1
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>docker import course.tar course:v1
+</code></pre></div>
 <p>​       然后运行<code>docker images</code>命令就可以看到导入的镜像文件。</p>
 <h3 id="43-docker">4.3 创建Docker容器</h3>
 <h4 id="431-macwindows">4.3.1 Mac和Windows系统</h4>
 <p>​       对于Mac和Window系统，运行如下命令以创建docker容器：</p>
-<pre><code class="language-bash">docker run -itd -p 8070-8090:8070-8090 -p 6379:6379 -p 27017:27017 --name myWork course:v1 bash
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>docker run -itd -p <span class="m">8070</span>-8090:8070-8090 -p <span class="m">6379</span>:6379 -p <span class="m">27017</span>:27017 --name myWork course:v1 bash
+</code></pre></div>
 <p>​       其中<code>docker run</code>代表创建并运行容器，其它参数说明如下：</p>
 <ul>
 <li><code>-itd</code>：-i 交互式操作；-t 在终端运行命令；-d在后台运行。</li>
@@ -1323,8 +1323,8 @@ public class LoginInParams extends CommonInParams {
 </ul>
 <h4 id="432-linux">4.3.2 Linux系统</h4>
 <p>​       对于Linux系统，运行如下命令以创建docker容器：</p>
-<pre><code class="language-bash">docker run -itd --name myWork --net=bridge course:v1 bash
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>docker run -itd --name myWork --net<span class="o">=</span>bridge course:v1 bash
+</code></pre></div>
 <p>​       其中<code>docker run</code>代表创建并运行容器，其它参数说明如下：</p>
 <ul>
 <li><code>-itd</code>：-i 交互式操作；-t 在终端运行命令；-d在后台运行。</li>
@@ -1341,25 +1341,25 @@ public class LoginInParams extends CommonInParams {
 <h4 id="433">4.3.3 关闭和启动容器</h4>
 <p>​        在创建容器后运行<code>docker ps</code>命令就可以看到所有正在运行的容器，<code>docker ps -a</code>则可以看到所有的容器（包括关闭的容器）。</p>
 <p>​       关闭容器的命令为</p>
-<pre><code class="language-bash">docker stop myWork
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>docker stop myWork
+</code></pre></div>
 <p>​       重启容器的命令为</p>
-<pre><code class="language-bash">docker start myWork
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>docker start myWork
+</code></pre></div>
 <p>​       注意重启容器不是<code>docker run</code>，<code>docker run</code>会创建一个全新的容器，该新容器与旧容器数据完全隔离！</p>
 <h3 id="44-redismongodb">4.4 启动Redis和Mongodb</h3>
 <p>​       在创建完成容器以后，通过执行</p>
-<pre><code class="language-bash">docker exec -it myWork bash
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>docker <span class="nb">exec</span> -it myWork bash
+</code></pre></div>
 <p>​       命令连接容器的终端，通过终端对容器的内部进行操作。在运行完成该命令后，此时已经进入了容器的终端。通过<code>ps -aux</code>命令可以判断目前是否在容器中，这个命令可以展示目前所有正在运行的进程，容器中的进程一般很少且PID编号较小，而<strong>Linux</strong>系统本身会有很多个进程，且很多进程的PID编号较大，如下图为一个容器运行<code>ps -aux</code>命令展示的进程列表：</p>
 <p><img src="../img/pictures/截屏2021-02-07 09.12.26.png" style="zoom:50%;" /></p>
 <p>​       可以看到容器中目前只有五个进程在运行，其中两个进程是bash命令行进程，一个进程是<code>ps -aux</code>进程本身，剩下两个进程就是在容器中启动的<strong>MongoDB</strong>和<strong>Redis</strong>进程。之所以容器中的进程这么少是因为容器的依赖进程都已经在运行容器的系统（对于<strong>Mac</strong>和<strong>Window</strong>而言是虚拟机）上存在，容器不需要再创建这些进程，容器所做的只是将容器本身的环境与系统环境隔离开来而已。     </p>
 <p>​       容器中启动MongoDB的命令是：</p>
-<pre><code class="language-bash">mongod --config /etc/mongodb.conf &amp;
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>mongod --config /etc/mongodb.conf <span class="p">&amp;</span>
+</code></pre></div>
 <p>​       容器中启动Redis的命令是：</p>
-<pre><code class="language-bash">redis-server /etc/redis/redis.conf
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>redis-server /etc/redis/redis.conf
+</code></pre></div>
 <p>​       此时运行<code>ps -aux</code>可以看到<strong>MongoDB</strong>和<strong>Redis</strong>的进程信息。可以下载<a href="https://www.mongodb.com/try/download/compass">MongoDB Compass</a>和<a href="https://github.com/qishibo/AnotherRedisDesktopManager">Another Redis Desktop Manager</a>来对MongoDB和Redis进行可视化操作。<strong>Redis</strong>可以使用默认配置直接连接不需要密码，本地连接<strong>MongoDB</strong>的配置如下图：</p>
 <p><img src="../img/pictures/截屏2021-02-06 21.45.34.png" style="zoom:50%;" /></p>
 <p>​       其中密码为<code>course2021</code>。</p>
@@ -1369,8 +1369,8 @@ public class LoginInParams extends CommonInParams {
 <h3 id="45-java">4.5 启动Java服务器</h3>
 <h4 id="451-macwindows">4.5.1 Mac和Windows系统</h4>
 <p>​       首先需要通过<code>git clone</code>下载源码：</p>
-<pre><code class="language-bash">git clone https://github.com/xuwm14/dragon.git
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>git clone https://github.com/xuwm14/dragon.git
+</code></pre></div>
 <p>​       一般而言，同学们使用<strong>Mac</strong>和<strong>Windows</strong>系统只是为了在本地调试服务器。在调试前需要同学们在系统上安装<strong>Maven</strong>。</p>
 <p>​       在安装好<strong>Maven</strong>以后，直接通过<strong>IntelliJ IDEA</strong>打开项目源码，然后右键点击<strong>pom.xml</strong>-&gt;<strong>Maven</strong>-&gt;<strong>Reimport</strong>，则<strong>Maven</strong>会自动下载项目所需的全部<strong>Java依赖包</strong>，在下载好之后就可以直接运行或者调试应用了，<strong>IntelliJ IDEA</strong>会自动识别出启动类<strong>com.flying.dragon.DragonApplication</strong>，如果没有识别出来请自己指定。</p>
 <p><img src="../img/pictures/截屏2021-02-06 21.57.17.png" style="zoom:50%;" /></p>
@@ -1382,36 +1382,36 @@ public class LoginInParams extends CommonInParams {
 <h4 id="452-linux">4.5.2 Linux系统</h4>
 <p>​       将<strong>Java</strong>源码上传到<strong>Linux服务器</strong>上，上传方式请自行选择。</p>
 <p>​       然后在<strong>系统中</strong>（<strong>非容器中</strong>）运行如下命令将<strong>Java</strong>源码拷贝到<strong>docker</strong>容器中：</p>
-<pre><code class="language-bash">docker cp /path/filename 容器id或名称:/path/filename
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>docker cp /path/filename 容器id或名称:/path/filename
+</code></pre></div>
 <p>​       或者也可以在容器中通过<code>git clone</code>直接下载源码：</p>
-<pre><code class="language-bash">git clone https://github.com/xuwm14/dragon.git
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>git clone https://github.com/xuwm14/dragon.git
+</code></pre></div>
 <p>​       进入容器的源码主目录下（即包含<strong>pom.xml</strong>的目录），运行</p>
-<pre><code class="language-bash">mvn install
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>mvn install
+</code></pre></div>
 <p>​       此时容器会通过<strong>maven</strong>自动下载项目依赖的所有<strong>jar</strong>包，第一次运行需要下载很多依赖包，时间比较漫长，请耐心等待容器下载完成，在依赖包下载完成后还会自动将项目打包成<strong>jar</strong>包。打包完成的<strong>jar</strong>包存储在<strong>target</strong>目录中，名称为<strong>dragon-0.0.1.jar</strong>，以后代码有修改时需要重新打包也可以运行此命令。</p>
 <p>​       此时进入<strong>jar</strong>包所在目录执行</p>
-<pre><code class="language-bash">nohup java -jar dragon-0.0.1.jar &amp;
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>nohup java -jar dragon-0.0.1.jar <span class="p">&amp;</span>
+</code></pre></div>
 <p>​       则服务器会在后台启动，在这种情况下，<strong>MongoDB</strong>、<strong>Redis</strong>和<strong>java</strong>应用程序都是运行在容器之中的，在<strong>Linux系统（非容器中）</strong>中输入</p>
-<pre><code class="language-bash">curl http://172.18.0.2:8080/user/login
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>curl http://172.18.0.2:8080/user/login
+</code></pre></div>
 <p>​       其中的<code>172.18.0.2</code>请自行替换为自己容器的内部ip，返回如下信息说明服务器启动成功（注意启动需要一定的时间，具体进程可以查看<strong>nohup.out</strong>）：</p>
 <p><img alt="" src="../img/pictures/访问结果3.png" /></p>
 <p>​       可以在<strong>容器</strong>的<strong>warn</strong>日志文件中查看更多内容，日志文件目录为<strong>容器</strong>中<strong>jar</strong>包文件同级目录<strong>logs</strong>。但是此时的服务只可以在内部访问，因为<code>172.18.0.2</code>这是个内部ip地址，外部无法访问。这时候就需要利用到了<strong>nginx</strong>的转发功能。</p>
 <p>​       在<strong>系统中</strong>（<strong>非容器中</strong>）下载好<strong>nginx</strong>，配置如下：</p>
-<pre><code class="language-nginx">server{
-  listen 8000;  # 监听的端口
-
-  location / {
-    proxy_pass  http://172.18.0.2:8080; # 转发规则
-    proxy_set_header Host $proxy_host; # 修改转发请求头，让端口的应用可以受到真实的请求
-    proxy_set_header X-Real-IP $remote_addr;
-    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-  }
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="k">server{</span><span class="w"></span>
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="w">  </span><span class="s">listen</span><span class="w"> </span><span class="mi">8000</span><span class="p">;</span><span class="w">  </span><span class="c1"># 监听的端口</span>
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>
+<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="w">  </span><span class="k">location</span><span class="w"> </span><span class="s">/</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="w">    </span><span class="kn">proxy_pass</span><span class="w">  </span><span class="s">http://172.18.0.2:8080</span><span class="p">;</span><span class="w"> </span><span class="c1"># 转发规则</span>
+<a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a><span class="w">    </span><span class="kn">proxy_set_header</span><span class="w"> </span><span class="s">Host</span><span class="w"> </span><span class="nv">$proxy_host</span><span class="p">;</span><span class="w"> </span><span class="c1"># 修改转发请求头，让端口的应用可以受到真实的请求</span>
+<a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a><span class="w">    </span><span class="kn">proxy_set_header</span><span class="w"> </span><span class="s">X-Real-IP</span><span class="w"> </span><span class="nv">$remote_addr</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a><span class="w">    </span><span class="kn">proxy_set_header</span><span class="w"> </span><span class="s">X-Forwarded-For</span><span class="w"> </span><span class="nv">$proxy_add_x_forwarded_for</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a><span class="w">  </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-16-10" name="__codelineno-16-10" href="#__codelineno-16-10"></a><span class="k">}</span><span class="w"></span>
+</code></pre></div>
 <p>​       启动<strong>nginx</strong>则会自动将<strong>8000</strong>端口的请求转发到容器<strong>172.18.0.2</strong>的<strong>8080</strong>端口，就可以在外部访问了。访问结果如下（需要服务器对外开放<strong>8000</strong>端口）：</p>
 <p><img src="../img/pictures/访问结果4.png" style="zoom:50%;" /></p>
 <h3 id="46">4.6 运行测试业务</h3>
@@ -1425,26 +1425,20 @@ public class LoginInParams extends CommonInParams {
 
 ​       助教已经将课程的基础镜像导入到共用服务器中，同学们在服务器上运行
 
-
-<pre><code class="language-bash">docker images
-</code></pre>
-
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>docker images
+</code></pre></div>
 
 ​       命令就可以看到助教提前导入的镜像，运行
 
-
-<pre><code class="language-bash">docker ps -a
-</code></pre>
-
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>docker ps -a
+</code></pre></div>
 
 ​       命令可以看到所有的容器，如果不加参数-a则会展示所有正在运行中的容器，助教已经在服务器上创建了myWork容器。
 
 ​       nginx配置文件全都存储在```/etc/nginx/sites-enabled```目录下面，里面有助教提供的示例配置文件example，同学们可以仿照该示例配置文件新建自己的配置文件，将容器端口映射到服务器上。在修改好自己的配置后，运行
 
-
-<pre><code class="language-bash">nginx -s reload
-</code></pre>
-
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>nginx -s reload
+</code></pre></div>
 
 ​       命令就可以让端口映射生效了。
 

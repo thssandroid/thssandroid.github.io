@@ -607,24 +607,24 @@
 <h3 id="_4">代码讲解</h3>
 <p>将设置状态保存到 SharedPreferences 文件中
 并在应用程序重新启动时将该数据读入并恢复，使得重启 APP 后设置不会恢复为默认值。</p>
-<p>创建Shared preferences object 以及shared preferences file 。</p>
-<pre><code class="language-java">private SharedPreferences mPreferences;
-private String sharedPrefFile =&quot;com.example.android.hellosharedprefs&quot;;
-</code></pre>
-<p>并在onCreate函数中进行初始化设置</p>
-<pre><code class="language-java">mPreferences = getSharedPreferences(sharedPrefFile, MODE_PRIVATE);
-</code></pre>
-<p>reset函数中进行preferences的清除</p>
-<pre><code class="language-java">SharedPreferences.Editor preferencesEditor = mPreferences.edit();
-preferencesEditor.clear();
-preferencesEditor.apply();
-</code></pre>
-<p>onPause函数中进行preferencesEditor的保存</p>
-<pre><code class="language-java">SharedPreferences.Editor preferencesEditor = mPreferences.edit();
-preferencesEditor.putInt(COUNT_KEY, mCount);
-preferencesEditor.putInt(COLOR_KEY, mColor);
-preferencesEditor.apply();
-</code></pre>
+<p>创建Shared preferences object 以及shared preferences file 。
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kd">private</span> <span class="n">SharedPreferences</span> <span class="n">mPreferences</span><span class="p">;</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kd">private</span> <span class="n">String</span> <span class="n">sharedPrefFile</span> <span class="o">=</span><span class="s">&quot;com.example.android.hellosharedprefs&quot;</span><span class="p">;</span>
+</code></pre></div>
+并在onCreate函数中进行初始化设置
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">mPreferences</span> <span class="o">=</span> <span class="n">getSharedPreferences</span><span class="p">(</span><span class="n">sharedPrefFile</span><span class="p">,</span> <span class="n">MODE_PRIVATE</span><span class="p">);</span>
+</code></pre></div></p>
+<p>reset函数中进行preferences的清除
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">SharedPreferences</span><span class="p">.</span><span class="na">Editor</span> <span class="n">preferencesEditor</span> <span class="o">=</span> <span class="n">mPreferences</span><span class="p">.</span><span class="na">edit</span><span class="p">();</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">preferencesEditor</span><span class="p">.</span><span class="na">clear</span><span class="p">();</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="n">preferencesEditor</span><span class="p">.</span><span class="na">apply</span><span class="p">();</span>
+</code></pre></div>
+onPause函数中进行preferencesEditor的保存
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">SharedPreferences</span><span class="p">.</span><span class="na">Editor</span> <span class="n">preferencesEditor</span> <span class="o">=</span> <span class="n">mPreferences</span><span class="p">.</span><span class="na">edit</span><span class="p">();</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="n">preferencesEditor</span><span class="p">.</span><span class="na">putInt</span><span class="p">(</span><span class="n">COUNT_KEY</span><span class="p">,</span> <span class="n">mCount</span><span class="p">);</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="n">preferencesEditor</span><span class="p">.</span><span class="na">putInt</span><span class="p">(</span><span class="n">COLOR_KEY</span><span class="p">,</span> <span class="n">mColor</span><span class="p">);</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="n">preferencesEditor</span><span class="p">.</span><span class="na">apply</span><span class="p">();</span>
+</code></pre></div></p>
 <h2 id="_5">作业说明</h2>
 <h3 id="_6">作业要求</h3>
 <p>本次作业的主要任务是实现动态草稿的保存功能（仅实现文字的保存即可）。</p>

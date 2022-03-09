@@ -608,44 +608,44 @@
 <p>通过startService() 启动后台服务调用onStartCommand()</p>
 <p>通过stopSelf()或者stopService()停止服务</p>
 <p>对按钮的响应函数及对应的服务的生命周期函数进行完善</p>
-<p>该函数完成启动，停止音乐播放器的功能。启动指音乐从头播放，停止指音乐播放器停止播放且释放相应资源。</p>
-<pre><code class="language-java">public void startPlayer(View view) {
-    Intent intent = new Intent(getBaseContext(), MusicService.class);
-    if(!isPlay) {
-        intent.putExtra(&quot;isPlay&quot;,true);
-        startService(intent);
-    }else{
-        stopService(intent);
-    }
-    isPlay = !isPlay;
-}
-</code></pre>
-<p>该函数完成暂停，继续播放音乐的功能。暂停指音乐停止播放，服务继续运行，继续播放指音乐播放器从上次停止播放的位置继续播放音乐。</p>
-<pre><code class="language-java">public void pausePlayer(View view) {
-    Intent intent = new Intent(getBaseContext(), MusicService.class);
-    if(!isPause){
-        intent.putExtra(&quot;isPlay&quot;,true);
-        intent.putExtra(&quot;isPause&quot;,true);
-        startService(intent);
-    }else{
-        intent.putExtra(&quot;isPause&quot;,false);
-        startService(intent);
-    }
-    isPause = !isPause;
-}
-</code></pre>
-<p>使用bindService()绑定服务，类似于客户端（组件）-- 服务器（服务）模式，提供接口，以便组件与服务进行交互</p>
-<pre><code class="language-java">private MusicBinder mBinder = new MusicBinder();
-public class MusicBinder extends Binder {
-    MusicService getService() {
-        return MusicService.this;
-    }
-}
-@Override // onBind()方法需返回Ibinder，Ibinder是与服务进行通信的接口。
-public IBinder onBind(Intent intent) {return mBinder;}
-@Override // 停止时，依次调用onUnbind-&gt;onDestroy方法。
-public boolean onUnbind(Intent intent) {return super.onUnbind(intent);}
-</code></pre>
+<p>该函数完成启动，停止音乐播放器的功能。启动指音乐从头播放，停止指音乐播放器停止播放且释放相应资源。
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kd">public</span> <span class="kt">void</span> <span class="nf">startPlayer</span><span class="p">(</span><span class="n">View</span> <span class="n">view</span><span class="p">)</span> <span class="p">{</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    <span class="n">Intent</span> <span class="n">intent</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Intent</span><span class="p">(</span><span class="n">getBaseContext</span><span class="p">(),</span> <span class="n">MusicService</span><span class="p">.</span><span class="na">class</span><span class="p">);</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">isPlay</span><span class="p">)</span> <span class="p">{</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>        <span class="n">intent</span><span class="p">.</span><span class="na">putExtra</span><span class="p">(</span><span class="s">&quot;isPlay&quot;</span><span class="p">,</span><span class="kc">true</span><span class="p">);</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>        <span class="n">startService</span><span class="p">(</span><span class="n">intent</span><span class="p">);</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>        <span class="n">stopService</span><span class="p">(</span><span class="n">intent</span><span class="p">);</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>    <span class="p">}</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>    <span class="n">isPlay</span> <span class="o">=</span> <span class="o">!</span><span class="n">isPlay</span><span class="p">;</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="p">}</span>
+</code></pre></div></p>
+<p>该函数完成暂停，继续播放音乐的功能。暂停指音乐停止播放，服务继续运行，继续播放指音乐播放器从上次停止播放的位置继续播放音乐。
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kd">public</span> <span class="kt">void</span> <span class="nf">pausePlayer</span><span class="p">(</span><span class="n">View</span> <span class="n">view</span><span class="p">)</span> <span class="p">{</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>    <span class="n">Intent</span> <span class="n">intent</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Intent</span><span class="p">(</span><span class="n">getBaseContext</span><span class="p">(),</span> <span class="n">MusicService</span><span class="p">.</span><span class="na">class</span><span class="p">);</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>    <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">isPause</span><span class="p">){</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>        <span class="n">intent</span><span class="p">.</span><span class="na">putExtra</span><span class="p">(</span><span class="s">&quot;isPlay&quot;</span><span class="p">,</span><span class="kc">true</span><span class="p">);</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>        <span class="n">intent</span><span class="p">.</span><span class="na">putExtra</span><span class="p">(</span><span class="s">&quot;isPause&quot;</span><span class="p">,</span><span class="kc">true</span><span class="p">);</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>        <span class="n">startService</span><span class="p">(</span><span class="n">intent</span><span class="p">);</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>    <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>        <span class="n">intent</span><span class="p">.</span><span class="na">putExtra</span><span class="p">(</span><span class="s">&quot;isPause&quot;</span><span class="p">,</span><span class="kc">false</span><span class="p">);</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>        <span class="n">startService</span><span class="p">(</span><span class="n">intent</span><span class="p">);</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>    <span class="p">}</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>    <span class="n">isPause</span> <span class="o">=</span> <span class="o">!</span><span class="n">isPause</span><span class="p">;</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="p">}</span>
+</code></pre></div></p>
+<p>使用bindService()绑定服务，类似于客户端（组件）-- 服务器（服务）模式，提供接口，以便组件与服务进行交互
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kd">private</span> <span class="n">MusicBinder</span> <span class="n">mBinder</span> <span class="o">=</span> <span class="k">new</span> <span class="n">MusicBinder</span><span class="p">();</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MusicBinder</span> <span class="kd">extends</span> <span class="n">Binder</span> <span class="p">{</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>    <span class="n">MusicService</span> <span class="nf">getService</span><span class="p">()</span> <span class="p">{</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>        <span class="k">return</span> <span class="n">MusicService</span><span class="p">.</span><span class="na">this</span><span class="p">;</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>    <span class="p">}</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="p">}</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="nd">@Override</span> <span class="c1">// onBind()方法需返回Ibinder，Ibinder是与服务进行通信的接口。</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="kd">public</span> <span class="n">IBinder</span> <span class="nf">onBind</span><span class="p">(</span><span class="n">Intent</span> <span class="n">intent</span><span class="p">)</span> <span class="p">{</span><span class="k">return</span> <span class="n">mBinder</span><span class="p">;}</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="nd">@Override</span> <span class="c1">// 停止时，依次调用onUnbind-&gt;onDestroy方法。</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">onUnbind</span><span class="p">(</span><span class="n">Intent</span> <span class="n">intent</span><span class="p">)</span> <span class="p">{</span><span class="k">return</span> <span class="kd">super</span><span class="p">.</span><span class="na">onUnbind</span><span class="p">(</span><span class="n">intent</span><span class="p">);}</span>
+</code></pre></div></p>
 <h2 id="_5">作业说明</h2>
 <h3 id="_6">作业要求</h3>
 <p>本次作业的主要任务是利用Service实现动态中网络源图片的加载和音视频的播放。</p>
