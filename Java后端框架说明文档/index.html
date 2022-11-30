@@ -13,7 +13,7 @@
     
     
       
-        <title>大作业后端框架说明 - 移动软件开发作业指南</title>
+        <title>后端框架说明 - 移动软件开发作业指南</title>
       
     
     
@@ -58,7 +58,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#java" class="md-skip">
+        <a href="#_1" class="md-skip">
           Skip to content
         </a>
       
@@ -91,7 +91,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              大作业后端框架说明
+              后端框架说明
             
           </span>
         </div>
@@ -373,7 +373,7 @@
   
     <li class="md-nav__item">
       <a href="../%E5%A4%A7%E4%BD%9C%E4%B8%9A/" class="md-nav__link">
-        大作业
+        综合练习
       </a>
     </li>
   
@@ -397,12 +397,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          大作业后端框架说明
+          后端框架说明
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        大作业后端框架说明
+        后端框架说明
       </a>
       
         
@@ -421,14 +421,14 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     一、后端依赖
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     二、后端框架解析
   </a>
   
@@ -489,7 +489,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     三、后端编程规范
   </a>
   
@@ -585,14 +585,14 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     一、后端依赖
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     二、后端框架解析
   </a>
   
@@ -653,7 +653,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     三、后端编程规范
   </a>
   
@@ -712,9 +712,9 @@
               
                 
 
-<h1 id="java">Java后端框架说明文档</h1>
+<h1 id="_1">后端框架说明文档</h1>
 <p>为了帮助同学们进行大作业的后端框架，同学们可以<a href="https://cloud.tsinghua.edu.cn/f/94b286afcf8d4bbf963b/?dl=1">点击链接下载</a></p>
-<h2 id="_1">一、后端依赖</h2>
+<h2 id="_2">一、后端依赖</h2>
 <p>​       本课程的后端框架由助教搭建，为了完美运行后端框架，同学们需要安装的依赖如下：</p>
 <ul>
 <li><strong>Java</strong>：需要的Java版本为<strong>1.8</strong>以上，框架中使用到了Java的<strong>反射机制</strong>、<strong>注解</strong>等特性，需要同学们自行学习相关内容。</li>
@@ -728,7 +728,7 @@
 <li>--&gt;</li>
 </ul>
 <p>​       以上相关内容请同学们自学为主，课堂上不会展开详细的介绍，同学们可以先掌握一个基本，主要是多实战。实战多了，坑踩多了，很多东西理解就深入了。</p>
-<h2 id="_2">二、后端框架解析</h2>
+<h2 id="_3">二、后端框架解析</h2>
 <h3 id="21">2.1 目录介绍</h3>
 <p>​       使用<strong>IntelliJ IDEA</strong>打开项目文件，可以观察到的项目目录如下：</p>
 <p><img src="../img/pictures/框架目录.png" /></p>
@@ -804,7 +804,7 @@
 <h3 id="23">2.3 框架特性介绍</h3>
 <p>​       本框架内容追求<strong>高度模块化</strong>的原则，系统<strong>可扩展性极强</strong>，不管是小型系统开发还是大型系统开发都可以在此框架基础上拓展完成，是一个不错的Java服务器框架。在刚开始写代码的时候，同学们可能会感觉内部逻辑复杂，因为代码模块较多，新增一个业务可能需要修改多个模块。但是随着代码量的增加，业务的复杂程度不断上升，此框架良好的扩展性就会发挥作用，此框架可以保证大量的业务扩展而很难发生内部逻辑紊乱，这一点同学们可以在实际开发中慢慢体会。</p>
 <p>​       此外，框架中封装了Quartz定时任务组件，同学们可以调用此组件完成服务器的定时任务。同时增加了<strong>Logback</strong>日志系统，方便同学追踪用户行为、定位服务器内部错误，日志的具体配置文件是<strong>resources/logback.xml</strong>。感兴趣的同学甚至还可以在日志系统的基础上配置日志监控，将日志内容图表化，可以更方便地统计自己的各业务执行状态，配置方式请自行搜索<strong>ELK(ElasticSearch + Kibana + Logstash)</strong>了解。</p>
-<h2 id="_3">三、后端编程规范</h2>
+<h2 id="_4">三、后端编程规范</h2>
 <h3 id="31">3.1 业务逻辑规范</h3>
 <p>​       业务逻辑规范分为<strong>不可违背</strong>和<strong>推荐性</strong>两大块，<strong>不可违背</strong>业务逻辑规范一旦被违背，则代码得分将大大降低，<strong>推荐性</strong>业务规范视完成程度酌情给分。</p>
 <h4 id="311">3.1.1 不可违背的业务逻辑规范</h4>
@@ -1074,7 +1074,7 @@
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href="../%E5%A4%A7%E4%BD%9C%E4%B8%9A/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 大作业" rel="prev">
+        <a href="../%E5%A4%A7%E4%BD%9C%E4%B8%9A/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 综合练习" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -1083,7 +1083,7 @@
               <span class="md-footer__direction">
                 Previous
               </span>
-              大作业
+              综合练习
             </div>
           </div>
         </a>
