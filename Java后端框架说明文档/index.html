@@ -8,36 +8,41 @@
       
       
       
+      
+      
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.8">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.5">
     
     
       
-        <title>后端框架说明 - 移动软件开发作业指南</title>
+        <title>后端框架说明文档 - 移动软件开发作业指南</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.6e60f8b8.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.558e4712.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.e6a45f82.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.2505c338.min.css">
+      
+      
+
+    
+    
+    
+      
         
-      
-    
-    
-    
-      
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
         <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
     
-    <script>__md_scope=new URL("..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
+    
     
     
   </head>
@@ -48,7 +53,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
   
     
     
@@ -75,11 +80,11 @@
     <a href=".." title="移动软件开发作业指南" class="md-header__button md-logo" aria-label="移动软件开发作业指南" data-md-component="logo">
       
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
     </label>
     <div class="md-header__title" data-md-component="header-title">
       <div class="md-header__ellipsis">
@@ -91,7 +96,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              后端框架说明
+              后端框架说明文档
             
           </span>
         </div>
@@ -101,7 +106,7 @@
     
     
       <label class="md-header__button md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
       </label>
       <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
@@ -109,13 +114,13 @@
     <form class="md-search__form" name="search">
       <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
       </label>
       <nav class="md-search__options" aria-label="Search">
         
-        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
         </button>
       </nav>
       
@@ -126,7 +131,7 @@
           <div class="md-search-result__meta">
             Initializing search
           </div>
-          <ol class="md-search-result__list"></ol>
+          <ol class="md-search-result__list" role="presentation"></ol>
         </div>
       </div>
     </div>
@@ -161,7 +166,7 @@
     <a href=".." title="移动软件开发作业指南" class="md-nav__button md-logo" aria-label="移动软件开发作业指南" data-md-component="logo">
       
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
 
     </a>
     移动软件开发作业指南
@@ -177,368 +182,9 @@
   
   
     <li class="md-nav__item">
-      <a href=".." class="md-nav__link">
-        首页
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../week1_java%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" class="md-nav__link">
         任务1：Java环境搭建
       </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../week2_%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" class="md-nav__link">
-        任务2：安卓开发环境搭建
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../week3_Activity%E5%8F%8A%E5%85%B6%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/" class="md-nav__link">
-        任务3：Activity及其生命周期
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../week4_%E9%9A%90%E5%BC%8FIntent/" class="md-nav__link">
-        任务4：隐式Intent
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../add1_%E4%BD%BF%E7%94%A8Layout%E8%AE%BE%E8%AE%A1%E7%95%8C%E9%9D%A2/" class="md-nav__link">
-        任务5：使用Layout设计界面
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../week5_TabLayout/" class="md-nav__link">
-        任务6：TabLayout
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../week6_RecyclerView/" class="md-nav__link">
-        任务7：RecyclerView
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../week7_%E5%A4%9A%E7%BA%BF%E7%A8%8B/" class="md-nav__link">
-        任务8：多线程
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../week9_Broadcast/" class="md-nav__link">
-        任务9：Broadcast
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../week10_%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8/" class="md-nav__link">
-        任务10：数据存储
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../week11_%E7%BD%91%E7%BB%9C%E6%93%8D%E4%BD%9C/" class="md-nav__link">
-        任务11：网络操作
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../week8_Service/" class="md-nav__link">
-        任务12：Service
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../%E5%A4%A7%E4%BD%9C%E4%B8%9A/" class="md-nav__link">
-        综合练习
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-    
-  
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          后端框架说明
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
-        后端框架说明
-      </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    一、后端依赖
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    二、后端框架解析
-  </a>
-  
-    <nav class="md-nav" aria-label="二、后端框架解析">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#21" class="md-nav__link">
-    2.1 目录介绍
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#22" class="md-nav__link">
-    2.2 框架结构分析
-  </a>
-  
-    <nav class="md-nav" aria-label="2.2 框架结构分析">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#221-base" class="md-nav__link">
-    2.2.1 Base基础模块
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#222-frame" class="md-nav__link">
-    2.2.2 Frame框架模块
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#223-biz" class="md-nav__link">
-    2.2.3 Biz业务模块
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#23" class="md-nav__link">
-    2.3 框架特性介绍
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    三、后端编程规范
-  </a>
-  
-    <nav class="md-nav" aria-label="三、后端编程规范">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#31" class="md-nav__link">
-    3.1 业务逻辑规范
-  </a>
-  
-    <nav class="md-nav" aria-label="3.1 业务逻辑规范">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#311" class="md-nav__link">
-    3.1.1 不可违背的业务逻辑规范
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#322" class="md-nav__link">
-    3.2.2 推荐性的业务逻辑规范
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#32" class="md-nav__link">
-    3.2 代码书写规范
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -707,10 +353,13 @@
               </div>
             
           
-          <div class="md-content" data-md-component="content">
-            <article class="md-content__inner md-typeset">
-              
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
                 
+                  
+
+
 
 <h1 id="_1">后端框架说明文档</h1>
 <p>为了帮助同学们进行大作业的后端框架，同学们可以<a href="https://cloud.tsinghua.edu.cn/f/94b286afcf8d4bbf963b/?dl=1">点击链接下载</a></p>
@@ -846,7 +495,7 @@
 
 ​       助教已经将所有的环境依赖直接封装在一个docker镜像文件course.tar中，请访问[链接](https://cloud.tsinghua.edu.cn/f/f2f5d3eebeb54b1d87cf/)下载镜像，同学们只需要运行如下命令导入该镜像即可：
 
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>docker import course.tar course:v1
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>docker<span class="w"> </span>import<span class="w"> </span>course.tar<span class="w"> </span>course:v1
 </code></pre></div>
 
 ​       然后运行```docker images```命令就可以看到导入的镜像文件。
@@ -857,7 +506,7 @@
 
 ​       对于Mac和Window系统，运行如下命令以创建docker容器：
 
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>docker run -itd -p <span class="m">8070</span>-8090:8070-8090 -p <span class="m">6379</span>:6379 -p <span class="m">27017</span>:27017 --name myWork course:v1 bash
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>docker<span class="w"> </span>run<span class="w"> </span>-itd<span class="w"> </span>-p<span class="w"> </span><span class="m">8070</span>-8090:8070-8090<span class="w"> </span>-p<span class="w"> </span><span class="m">6379</span>:6379<span class="w"> </span>-p<span class="w"> </span><span class="m">27017</span>:27017<span class="w"> </span>--name<span class="w"> </span>myWork<span class="w"> </span>course:v1<span class="w"> </span>bash
 </code></pre></div>
 
 ​       其中```docker run```代表创建并运行容器，其它参数说明如下：
@@ -872,7 +521,7 @@
 
 ​       对于Linux系统，运行如下命令以创建docker容器：
 
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>docker run -itd --name myWork --net<span class="o">=</span>bridge course:v1 bash
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>docker<span class="w"> </span>run<span class="w"> </span>-itd<span class="w"> </span>--name<span class="w"> </span>myWork<span class="w"> </span>--net<span class="o">=</span>bridge<span class="w"> </span>course:v1<span class="w"> </span>bash
 </code></pre></div>
 
 ​       其中```docker run```代表创建并运行容器，其它参数说明如下：
@@ -900,12 +549,12 @@
 
 ​       关闭容器的命令为
 
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>docker stop myWork
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>docker<span class="w"> </span>stop<span class="w"> </span>myWork
 </code></pre></div>
 
 ​       重启容器的命令为
 
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>docker start myWork
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>docker<span class="w"> </span>start<span class="w"> </span>myWork
 </code></pre></div>
 
 ​       注意重启容器不是```docker run```，```docker run```会创建一个全新的容器，该新容器与旧容器数据完全隔离！
@@ -914,7 +563,7 @@
 
 ​       在创建完成容器以后，通过执行
 
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>docker <span class="nb">exec</span> -it myWork bash
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>myWork<span class="w"> </span>bash
 </code></pre></div>
 
 ​       命令连接容器的终端，通过终端对容器的内部进行操作。在运行完成该命令后，此时已经进入了容器的终端。通过```ps -aux```命令可以判断目前是否在容器中，这个命令可以展示目前所有正在运行的进程，容器中的进程一般很少且PID编号较小，而**Linux**系统本身会有很多个进程，且很多进程的PID编号较大，如下图为一个容器运行```ps -aux```命令展示的进程列表：
@@ -925,12 +574,12 @@
 
 ​       容器中启动MongoDB的命令是：
 
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>mongod --config /etc/mongodb.conf <span class="p">&amp;</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>mongod<span class="w"> </span>--config<span class="w"> </span>/etc/mongodb.conf<span class="w"> </span><span class="p">&amp;</span>
 </code></pre></div>
 
 ​       容器中启动Redis的命令是：
 
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>redis-server /etc/redis/redis.conf
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>redis-server<span class="w"> </span>/etc/redis/redis.conf
 </code></pre></div>
 
 ​       此时运行```ps -aux```可以看到**MongoDB**和**Redis**的进程信息。可以下载[MongoDB Compass](https://www.mongodb.com/try/download/compass)和[Another Redis Desktop Manager](https://github.com/qishibo/AnotherRedisDesktopManager)来对MongoDB和Redis进行可视化操作。**Redis**可以使用默认配置直接连接不需要密码，本地连接**MongoDB**的配置如下图：
@@ -951,7 +600,7 @@
 
 ​       首先需要通过```git clone```下载源码：
 
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>git clone https://github.com/xuwm14/dragon.git
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/xuwm14/dragon.git
 </code></pre></div>
 
 ​       一般而言，同学们使用**Mac**和**Windows**系统只是为了在本地调试服务器。在调试前需要同学们在系统上安装**Maven**。
@@ -972,29 +621,29 @@
 
 ​       然后在**系统中**（**非容器中**）运行如下命令将**Java**源码拷贝到**docker**容器中：
 
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>docker cp /path/filename 容器id或名称:/path/filename
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>docker<span class="w"> </span>cp<span class="w"> </span>/path/filename<span class="w"> </span>容器id或名称:/path/filename
 </code></pre></div>
 
 ​       或者也可以在容器中通过```git clone```直接下载源码：
 
-<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>git clone https://github.com/xuwm14/dragon.git
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/xuwm14/dragon.git
 </code></pre></div>
 
 ​       进入容器的源码主目录下（即包含**pom.xml**的目录），运行
 
-<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>mvn install
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>mvn<span class="w"> </span>install
 </code></pre></div>
 
 ​       此时容器会通过**maven**自动下载项目依赖的所有**jar**包，第一次运行需要下载很多依赖包，时间比较漫长，请耐心等待容器下载完成，在依赖包下载完成后还会自动将项目打包成**jar**包。打包完成的**jar**包存储在**target**目录中，名称为**dragon-0.0.1.jar**，以后代码有修改时需要重新打包也可以运行此命令。
 
 ​       此时进入**jar**包所在目录执行
 
-<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>nohup java -jar dragon-0.0.1.jar <span class="p">&amp;</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>nohup<span class="w"> </span>java<span class="w"> </span>-jar<span class="w"> </span>dragon-0.0.1.jar<span class="w"> </span><span class="p">&amp;</span>
 </code></pre></div>
 
 ​       则服务器会在后台启动，在这种情况下，**MongoDB**、**Redis**和**java**应用程序都是运行在容器之中的，在**Linux系统（非容器中）**中输入
 
-<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>curl http://172.18.0.2:8080/user/login
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>curl<span class="w"> </span>http://172.18.0.2:8080/user/login
 </code></pre></div>
 
 ​       其中的```172.18.0.2```请自行替换为自己容器的内部ip，返回如下信息说明服务器启动成功（注意启动需要一定的时间，具体进程可以查看**nohup.out**）：
@@ -1005,16 +654,16 @@
 
 ​       在**系统中**（**非容器中**）下载好**nginx**，配置如下：
 
-<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="k">server{</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="k">server{</span>
 <a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="w">  </span><span class="s">listen</span><span class="w"> </span><span class="mi">8000</span><span class="p">;</span><span class="w">  </span><span class="c1"># 监听的端口</span>
 <a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>
-<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="w">  </span><span class="k">location</span><span class="w"> </span><span class="s">/</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="w">  </span><span class="k">location</span><span class="w"> </span><span class="s">/</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="w">    </span><span class="kn">proxy_pass</span><span class="w">  </span><span class="s">http://172.18.0.2:8080</span><span class="p">;</span><span class="w"> </span><span class="c1"># 转发规则</span>
 <a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a><span class="w">    </span><span class="kn">proxy_set_header</span><span class="w"> </span><span class="s">Host</span><span class="w"> </span><span class="nv">$proxy_host</span><span class="p">;</span><span class="w"> </span><span class="c1"># 修改转发请求头，让端口的应用可以受到真实的请求</span>
-<a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a><span class="w">    </span><span class="kn">proxy_set_header</span><span class="w"> </span><span class="s">X-Real-IP</span><span class="w"> </span><span class="nv">$remote_addr</span><span class="p">;</span><span class="w"></span>
-<a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a><span class="w">    </span><span class="kn">proxy_set_header</span><span class="w"> </span><span class="s">X-Forwarded-For</span><span class="w"> </span><span class="nv">$proxy_add_x_forwarded_for</span><span class="p">;</span><span class="w"></span>
-<a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a><span class="w">  </span><span class="p">}</span><span class="w"></span>
-<a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a><span class="k">}</span><span class="w"></span>
+<a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a><span class="w">    </span><span class="kn">proxy_set_header</span><span class="w"> </span><span class="s">X-Real-IP</span><span class="w"> </span><span class="nv">$remote_addr</span><span class="p">;</span>
+<a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a><span class="w">    </span><span class="kn">proxy_set_header</span><span class="w"> </span><span class="s">X-Forwarded-For</span><span class="w"> </span><span class="nv">$proxy_add_x_forwarded_for</span><span class="p">;</span>
+<a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a><span class="k">}</span>
 </code></pre></div>
 
 ​       启动**nginx**则会自动将**8000**端口的请求转发到容器**172.18.0.2**的**8080**端口，就可以在外部访问了。访问结果如下（需要服务器对外开放**8000**端口）：
@@ -1041,19 +690,19 @@
 
 ​       助教已经将课程的基础镜像导入到共用服务器中，同学们在服务器上运行
 
-<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>docker images
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>docker<span class="w"> </span>images
 </code></pre></div>
 
 ​       命令就可以看到助教提前导入的镜像，运行
 
-<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>docker ps -a
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>docker<span class="w"> </span>ps<span class="w"> </span>-a
 </code></pre></div>
 
 ​       命令可以看到所有的容器，如果不加参数-a则会展示所有正在运行中的容器，助教已经在服务器上创建了myWork容器。
 
 ​       nginx配置文件全都存储在```/etc/nginx/sites-enabled```目录下面，里面有助教提供的示例配置文件example，同学们可以仿照该示例配置文件新建自己的配置文件，将容器端口映射到服务器上。在修改好自己的配置后，运行
 
-<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>nginx -s reload
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>nginx<span class="w"> </span>-s<span class="w"> </span>reload
 </code></pre></div>
 
 ​       命令就可以让端口映射生效了。
@@ -1062,49 +711,20 @@
 
 ​       为了保证同学们彼此之间的开发不会产生冲突，每个小组的docker容器会分配唯一的名称，同时会给每个小组分配几个固定的端口号和nginx配置名称，请小组同学在开发时使用自己的名称创建docker容器，并在配置nginx时只使用属于自己小组的端口号，<font color="red">任何不符合规范的容器或者nginx配置都可能会被删除而没有事先通知！</font> -->
 
-              
-            </article>
-          </div>
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
         </div>
         
       </main>
       
         <footer class="md-footer">
-  
-    <nav class="md-footer__inner md-grid" aria-label="Footer">
-      
-        
-        <a href="../%E5%A4%A7%E4%BD%9C%E4%B8%9A/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 综合练习" rel="prev">
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-          </div>
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Previous
-              </span>
-              综合练习
-            </div>
-          </div>
-        </a>
-      
-      
-        
-        <a href="../%E8%AF%BE%E7%A8%8B%E5%9B%9E%E9%A1%BE%E5%8F%8A%E6%84%9F%E6%83%B3/" class="md-footer__link md-footer__link--next" aria-label="Next: 关于课程的回顾和一些感想" rel="next">
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Next
-              </span>
-              关于课程的回顾和一些感想
-            </div>
-          </div>
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
-          </div>
-        </a>
-      
-    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
@@ -1126,10 +746,11 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.22074ed6.min.js"}</script>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.e5c33ebb.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.960e086b.min.js"></script>
+      <script src="../assets/javascripts/bundle.51d95adb.min.js"></script>
       
     
   </body>
